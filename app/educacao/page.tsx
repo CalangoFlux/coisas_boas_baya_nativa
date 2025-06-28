@@ -358,11 +358,7 @@ export default function EducacaoPage() {
                 {/* Projetos dispostos em arco */}
                 <div className="relative h-48">
                   {/* Letramento Web3 - esquerda */}
-                  <motion.div
-                    className="absolute left-1/4 top-4 transform -translate-x-1/2"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
+                  <div className="absolute left-1/4 top-4 transform -translate-x-1/2">
                     <div className="text-center">
                       <div
                         className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
@@ -376,14 +372,10 @@ export default function EducacaoPage() {
                       <h4 className="font-bold text-white mb-1 text-lg">Letramento Web3</h4>
                       <p className="text-sm text-white/90 max-w-32">Educação digital para o futuro descentralizado</p>
                     </div>
-                  </motion.div>
+                  </div>
 
                   {/* Horta Pedagógica - centro */}
-                  <motion.div
-                    className="absolute left-1/2 top-0 transform -translate-x-1/2"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
+                  <div className="absolute left-1/2 top-0 transform -translate-x-1/2">
                     <div className="text-center">
                       <div
                         className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
@@ -397,14 +389,10 @@ export default function EducacaoPage() {
                       <h4 className="font-bold text-white mb-1 text-lg">Horta Pedagógica</h4>
                       <p className="text-sm text-white/90 max-w-32">Aprendizado através do cultivo e cuidado</p>
                     </div>
-                  </motion.div>
+                  </div>
 
                   {/* Arte e Natureza - direita */}
-                  <motion.div
-                    className="absolute right-1/4 top-4 transform translate-x-1/2"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
+                  <div className="absolute right-1/4 top-4 transform translate-x-1/2">
                     <div className="text-center">
                       <div
                         className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
@@ -418,7 +406,7 @@ export default function EducacaoPage() {
                       <h4 className="font-bold text-white mb-1 text-lg">Arte e Natureza</h4>
                       <p className="text-sm text-white/90 max-w-32">Expressão artística inspirada na natureza</p>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -444,10 +432,7 @@ export default function EducacaoPage() {
           </motion.div>
 
           {/* Container oval do formulário */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
+          <div
             className="relative"
             style={{
               padding: "3rem 2rem",
@@ -456,14 +441,14 @@ export default function EducacaoPage() {
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-800 mb-2">Nome Completo</label>
+                  <label className="block text-sm font-bold text-white mb-2">Nome Completo</label>
                   <Input
                     placeholder="Seu nome"
                     className="border-2 border-white/30 focus:border-cyan-400 rounded-full h-12 bg-white/20 backdrop-blur-sm text-white placeholder-white/70"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-800 mb-2">Email</label>
+                  <label className="block text-sm font-bold text-white mb-2">Email</label>
                   <Input
                     type="email"
                     placeholder="seu@email.com"
@@ -473,7 +458,7 @@ export default function EducacaoPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2">Como gostaria de participar?</label>
+                <label className="block text-sm font-bold text-white mb-2">Como gostaria de participar?</label>
                 <select className="w-full p-3 border-2 border-white/30 rounded-full focus:border-cyan-400 focus:outline-none h-12 bg-white/20 backdrop-blur-sm text-white">
                   <option>Facilitador/Educador</option>
                   <option>Apoiador/Voluntário</option>
@@ -483,7 +468,7 @@ export default function EducacaoPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2">Conte-nos sobre seu interesse</label>
+                <label className="block text-sm font-bold text-white mb-2">Conte-nos sobre seu interesse</label>
                 <Textarea
                   placeholder="Compartilhe sua experiência, motivações e como gostaria de contribuir..."
                   rows={4}
@@ -491,7 +476,7 @@ export default function EducacaoPage() {
                 />
               </div>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="text-center">
+              <div className="text-center">
                 <Button
                   type="submit"
                   size="lg"
@@ -505,9 +490,9 @@ export default function EducacaoPage() {
                   Fazer Parte da Comunidade
                   <Rocket className="w-5 h-5 ml-2" />
                 </Button>
-              </motion.div>
+              </div>
             </form>
-          </motion.div>
+          </div>
         </div>
       </section>
 
