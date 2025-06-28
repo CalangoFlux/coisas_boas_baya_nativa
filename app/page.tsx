@@ -468,49 +468,38 @@ export default function HomePage() {
               className="group animate-float"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-700 to-rose-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer">
-                <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-slate-700/20 to-rose-600/20"
-                  animate={{ opacity: [0.2, 0.4, 0.2] }}
-                  transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
-                />
-                <div className="relative z-10">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                    <motion.img
-                      src="/images/icons/confianca.png"
-                      alt="Confiança"
-                      className="w-8 h-8 object-contain brightness-0 invert"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    />
+              <Link href="/produtos">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-700 to-rose-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer">
+                  <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-slate-700/20 to-rose-600/20"
+                    animate={{ opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
+                  />
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                      <motion.img
+                        src="/images/icons/confianca.png"
+                        alt="Confiança"
+                        className="w-8 h-8 object-contain brightness-0 invert"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                      />
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Produtos das Florestas</h3>
+                    <p className="text-rose-100 text-base sm:text-lg leading-relaxed">
+                      Sabores e medicinas da natureza: chocolates artesanais e farmácia nativa
+                    </p>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Produtos das Florestas</h3>
-                  <p className="text-rose-100 text-base sm:text-lg leading-relaxed">
-                    Sabores e medicinas da natureza: chocolates artesanais e farmácia nativa
-                  </p>
+                  <motion.div
+                    className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base"
+                    whileHover={{ x: 5 }}
+                  >
+                    <span>Explore nossas marcas</span>
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                  </motion.div>
                 </div>
-                <div className="relative z-10 space-y-2">
-                  <Link href="/cacau-flor">
-                    <motion.div
-                      className="flex items-center text-white/90 hover:text-white text-sm transition-colors"
-                      whileHover={{ x: 5 }}
-                    >
-                      <span>• Cacau Flor - Chocolateria artesanal</span>
-                      <ArrowRight className="w-3 h-3 ml-2" />
-                    </motion.div>
-                  </Link>
-                  <Link href="/namoa">
-                    <motion.div
-                      className="flex items-center text-white/90 hover:text-white text-sm transition-colors"
-                      whileHover={{ x: 5 }}
-                    >
-                      <span>• Namoa - Farmácia nativa</span>
-                      <ArrowRight className="w-3 h-3 ml-2" />
-                    </motion.div>
-                  </Link>
-                </div>
-              </div>
+              </Link>
             </motion.div>
 
             {/* Comunidades e Coletivos */}
@@ -521,40 +510,38 @@ export default function HomePage() {
               className="group animate-float-gentle"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-600 to-purple-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer">
-                <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-orange-600/20 to-purple-600/20"
-                  animate={{ opacity: [0.2, 0.4, 0.2] }}
-                  transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 3 }}
-                />
-                <div className="relative z-10">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                    <motion.img
-                      src="/images/icons/mapa-mental.png"
-                      alt="Mapa Mental"
-                      className="w-8 h-8 object-contain brightness-0 invert"
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                    />
+              <Link href="/comunidades">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-600 to-purple-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer">
+                  <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-orange-600/20 to-purple-600/20"
+                    animate={{ opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 3 }}
+                  />
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                      <motion.img
+                        src="/images/icons/mapa-mental.png"
+                        alt="Mapa Mental"
+                        className="w-8 h-8 object-contain brightness-0 invert"
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                      />
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Comunidades e Coletivos</h3>
+                    <p className="text-orange-100 text-base sm:text-lg leading-relaxed">
+                      Redes de articulação dos povos originários e fortalecimento territorial
+                    </p>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Comunidades e Coletivos</h3>
-                  <p className="text-orange-100 text-base sm:text-lg leading-relaxed">
-                    Redes de articulação dos povos originários e fortalecimento territorial
-                  </p>
+                  <motion.div
+                    className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base"
+                    whileHover={{ x: 5 }}
+                  >
+                    <span>Conheça nossas redes</span>
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                  </motion.div>
                 </div>
-                <div className="relative z-10 space-y-2">
-                  <Link href="/teia-dos-povos">
-                    <motion.div
-                      className="flex items-center text-white/90 hover:text-white text-sm transition-colors"
-                      whileHover={{ x: 5 }}
-                    >
-                      <span>• Teia dos Povos - Rede originária</span>
-                      <ArrowRight className="w-3 h-3 ml-2" />
-                    </motion.div>
-                  </Link>
-                </div>
-              </div>
+              </Link>
             </motion.div>
           </div>
         </div>

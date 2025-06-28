@@ -10,8 +10,12 @@ Este portal é estruturado como um hub de landing pages independentes, cada uma 
 - **Portal Principal**: Apresentação geral e navegação
 - **Serviços Baya Nativa**: Consultorias, vivências e assessorias
 - **Educação Regenerativa**: Programas educativos e formação
-- **Cacau Flor**: Produtos artesanais com cacau nativo
-- **Namoa**: Fitoterápicos e produtos naturais
+- **Produtos das Florestas**: Hub para marcas parceiras
+  - **Cacau Flor**: Chocolateria artesanal
+  - **Namoa**: Farmácia nativa e produtos naturais
+- **Comunidades e Coletivos**: Hub para redes e articulações
+  - **Teia dos Povos**: Rede de povos originários
+- **Agenda**: Eventos e vivências
 
 ## 🚀 Tecnologias
 
@@ -69,10 +73,10 @@ As cores principais podem ser ajustadas no arquivo `tailwind.config.js` e `app/g
 - Adicione novas páginas criando arquivos em `app/nova-pagina/page.tsx`
 - Componentes reutilizáveis estão em `components/`
 
-### Integrações Opcionais
-- **Supabase**: Para formulários de contato e banco de dados
-- **WhatsApp Business**: Para integração com atendimento
-- **Email**: Para envio de formulários
+### Funcionalidades
+- **Carrinho de Compras**: Sistema simples integrado com WhatsApp
+- **Formulários de Contato**: Envio via email
+- **Navegação Responsiva**: Otimizada para todos os dispositivos
 
 ## 📁 Estrutura do Projeto
 
@@ -81,17 +85,33 @@ As cores principais podem ser ajustadas no arquivo `tailwind.config.js` e `app/g
 │   ├── page.tsx              # Portal principal
 │   ├── servicos/page.tsx     # Serviços Baya Nativa
 │   ├── educacao/page.tsx     # Educação Regenerativa
+│   ├── produtos/page.tsx     # Hub Produtos das Florestas
 │   ├── cacau-flor/page.tsx   # Marca Cacau Flor
 │   ├── namoa/page.tsx        # Marca Namoa
+│   ├── comunidades/page.tsx  # Hub Comunidades e Coletivos
+│   ├── teia-dos-povos/page.tsx # Teia dos Povos
+│   ├── agenda/page.tsx       # Agenda de eventos
 │   ├── layout.tsx            # Layout raiz
 │   └── globals.css           # Estilos globais
 ├── components/
 │   ├── header.tsx            # Cabeçalho
 │   ├── footer.tsx            # Rodapé
+│   ├── cart-drawer.tsx       # Carrinho de compras
+│   ├── cart-button.tsx       # Botão do carrinho
 │   └── ui/                   # Componentes shadcn/ui
+├── hooks/
+│   └── use-cart.ts           # Hook do carrinho
 ├── public/                   # Arquivos estáticos
 └── README.md
 \`\`\`
+
+## 🛒 Sistema de Carrinho
+
+O projeto inclui um sistema de carrinho simples que:
+- Armazena produtos no localStorage
+- Calcula frete simulado
+- Gera mensagem formatada para WhatsApp
+- Suporta múltiplas lojas independentes
 
 ## 🤝 Contribuição
 

@@ -28,7 +28,7 @@ export default function Header() {
     },
     {
       name: "Produtos das Florestas",
-      href: "#",
+      href: "/produtos",
       description: "Sabores e medicinas da natureza",
       submenu: [
         { name: "Cacau Flor", href: "/cacau-flor", description: "Chocolateria artesanal sofisticada" },
@@ -37,7 +37,7 @@ export default function Header() {
     },
     {
       name: "Comunidades e Coletivos",
-      href: "#",
+      href: "/comunidades",
       description: "Redes de articulação e fortalecimento",
       submenu: [{ name: "Teia dos Povos", href: "/teia-dos-povos", description: "Rede de povos originários" }],
     },
