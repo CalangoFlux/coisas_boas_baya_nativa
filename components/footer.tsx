@@ -8,19 +8,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Brand */}
           <div className="space-y-3 sm:space-y-4 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start space-x-3">
+            <div className="flex items-center justify-center md:justify-start space-x-4">
               <div className="relative">
                 <img
-                  src="/images/baya-nativa-logo.png"
+                  src="/images/baya-nativa-logo-footer.png"
                   alt="Baya Nativa"
-                  className="h-12 w-12 sm:h-14 sm:w-14 object-contain brightness-110"
+                  className="h-16 w-16 sm:h-20 sm:w-20 object-contain brightness-110"
                 />
               </div>
               <div className="flex flex-col">
                 <span className="text-lg sm:text-xl font-bold text-white leading-tight">
                   Coisas Boas da Baya Nativa
                 </span>
-                <span className="text-xs text-emerald-300 leading-tight">Saberes, Sabores e Soluções da Floresta</span>
+                <span className="text-xs sm:text-sm text-emerald-300 leading-tight">
+                  Saberes, Sabores e Soluções da Floresta
+                </span>
               </div>
             </div>
             <p className="text-emerald-200 leading-relaxed text-sm sm:text-base">
