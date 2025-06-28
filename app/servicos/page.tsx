@@ -92,45 +92,46 @@ export default function ServicosPage() {
     {
       title: "Imersões em Bioconstrução Ancestral",
       description:
-        "Técnicas milenares de construção com terra, bambu e fibras naturais, integrando conhecimento tradicional com inovações contemporâneas",
+        "Mergulhe nas técnicas milenares de construção com terra crua, bambu e fibras naturais. Aprenda desde a preparação do barro até técnicas avançadas de acabamento, integrando conhecimento tradicional com inovações sustentáveis contemporâneas.",
       duration: "3-7 dias",
       participants: "8-15 pessoas",
       icon: Hammer,
       color: "from-amber-500 to-orange-600",
-      pattern: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-      includes: ["Prática hands-on", "Materiais naturais", "Alimentação orgânica", "Certificado ancestral"],
+      includes: [
+        "Adobe e taipa de pilão",
+        "Estruturas de bambu",
+        "Alimentação orgânica",
+        "Certificado de participação",
+      ],
     },
     {
       title: "Trilhas Agroflorestais Sagradas",
       description:
-        "Caminhadas meditativas em sistemas agroflorestais, aprendendo design regenerativo através da observação profunda da natureza",
+        "Caminhadas meditativas em sistemas agroflorestais, aprendendo design regenerativo através da observação profunda da natureza e seus ciclos. Conecte-se com a inteligência viva dos ecossistemas.",
       duration: "2-5 dias",
       participants: "10-20 pessoas",
       icon: TreePine,
       color: "from-green-500 to-emerald-600",
-      pattern: "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
       includes: ["Caminhadas guiadas", "Plantio ritualístico", "Colheita consciente", "Medicina da floresta"],
     },
     {
       title: "Laboratório de Tinturas e Medicina Ancestral",
       description:
-        "Resgate de conhecimentos tradicionais sobre plantas de poder, preparos medicinais e práticas de cura integral",
+        "Resgate profundo dos conhecimentos tradicionais sobre plantas medicinais e tinturas naturais. Aprenda desde a identificação e coleta até o preparo de extratos, óleos e tinturas para uso terapêutico e artístico.",
       duration: "1-3 dias",
       participants: "6-12 pessoas",
       icon: Palette,
       color: "from-purple-500 to-indigo-600",
-      pattern: "polygon(30% 0%, 70% 0%, 100% 30%, 70% 100%, 30% 100%, 0% 70%)",
-      includes: ["Coleta ritualística", "Preparos alquímicos", "Receitas ancestrais", "Kit medicina pessoal"],
+      includes: ["Coleta e identificação", "Técnicas de extração", "Receitas tradicionais", "Kit medicina pessoal"],
     },
     {
       title: "Consultoria Territorial Regenerativa",
       description:
-        "Diagnóstico e planejamento holístico para propriedades e comunidades, integrando dimensões ecológicas, sociais e espirituais",
+        "Diagnóstico e planejamento holístico para propriedades e comunidades, integrando dimensões ecológicas, sociais e espirituais através de metodologias participativas e design regenerativo.",
       duration: "Processo personalizado",
       participants: "1-8 pessoas",
       icon: Mountain,
       color: "from-teal-500 to-cyan-600",
-      pattern: "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)",
       includes: ["Diagnóstico multidimensional", "Plano regenerativo", "Acompanhamento integral", "Rede de apoio"],
     },
   ]
@@ -172,16 +173,6 @@ export default function ServicosPage() {
               className="lg:col-span-7 space-y-8"
             >
               <div className="space-y-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-100 to-orange-100 px-6 py-3 rounded-full border-2 border-amber-300"
-                >
-                  <Sparkles className="w-5 h-5 text-amber-600" />
-                  <span className="text-amber-800 font-semibold">Originário • Pós-Contemporâneo</span>
-                </motion.div>
-
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-700 via-emerald-700 to-purple-700">
                     Serviços
@@ -404,7 +395,7 @@ export default function ServicosPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-12">
             {vivencias.map((vivencia, index) => (
               <motion.div
                 key={vivencia.title}
@@ -414,77 +405,92 @@ export default function ServicosPage() {
                 className="group relative"
               >
                 <div
-                  className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border-2 border-gray-200 hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                  className="relative bg-white/90 backdrop-blur-sm shadow-2xl border-2 border-gray-200 hover:shadow-3xl transition-all duration-500 overflow-hidden p-8"
                   style={{
-                    clipPath: index % 2 === 0 ? vivencia.pattern : undefined,
+                    borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+                    minHeight: "420px",
                   }}
                 >
-                  {/* Padrão de Fundo */}
+                  {/* Padrão de Fundo Orgânico */}
                   <div
-                    className="absolute inset-0 opacity-10"
+                    className="absolute inset-0 opacity-15"
                     style={{
                       background: `
-                        radial-gradient(circle at 20% 20%, rgba(218, 165, 32, 0.3) 0%, transparent 30%),
-                        radial-gradient(circle at 80% 80%, rgba(34, 139, 34, 0.3) 0%, transparent 30%)
-                      `,
+                  radial-gradient(ellipse at 30% 20%, rgba(218, 165, 32, 0.4) 0%, transparent 40%),
+                  radial-gradient(ellipse at 70% 80%, rgba(34, 139, 34, 0.4) 0%, transparent 40%),
+                  radial-gradient(ellipse at 50% 50%, rgba(138, 43, 226, 0.3) 0%, transparent 50%)
+                `,
                     }}
                   ></div>
 
-                  <div className="relative z-10">
-                    <div className="flex items-start gap-4 mb-6">
+                  <div className="relative z-10 h-full flex flex-col justify-between">
+                    {/* Header */}
+                    <div className="text-center mb-6">
                       <motion.div
-                        whileHover={{ rotate: 360 }}
+                        whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.8 }}
-                        className={`w-16 h-16 bg-gradient-to-br ${vivencia.color} rounded-2xl flex items-center justify-center shadow-lg`}
+                        className={`w-20 h-20 bg-gradient-to-br ${vivencia.color} rounded-full flex items-center justify-center shadow-xl mx-auto mb-4`}
                       >
-                        <vivencia.icon className="w-8 h-8 text-white" />
+                        <vivencia.icon className="w-10 h-10 text-white" />
                       </motion.div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-800 mb-2 font-serif">{vivencia.title}</h3>
-                        <div className="flex items-center gap-4 text-sm text-gray-600">
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {vivencia.duration}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Users className="w-4 h-4" />
-                            {vivencia.participants}
-                          </span>
+                      <h3 className="text-2xl font-bold text-gray-800 mb-2 font-serif leading-tight">
+                        {vivencia.title}
+                      </h3>
+                      <div className="flex items-center justify-center gap-6 text-sm text-gray-600 mb-4">
+                        <span className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full">
+                          <Calendar className="w-4 h-4" />
+                          {vivencia.duration}
+                        </span>
+                        <span className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full">
+                          <Users className="w-4 h-4" />
+                          {vivencia.participants}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Descrição */}
+                    <div className="flex-1 mb-6">
+                      <p className="text-gray-700 leading-relaxed text-center mb-6 text-lg">{vivencia.description}</p>
+
+                      {/* Inclui - Layout Diagramado */}
+                      <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-4 mb-6">
+                        <h4 className="font-bold text-gray-800 flex items-center justify-center gap-2 mb-4">
+                          <Sparkles className="w-5 h-5 text-amber-500" />
+                          <span className="text-lg">Inclui</span>
+                        </h4>
+                        <div className="grid grid-cols-2 gap-3">
+                          {vivencia.includes.map((item, i) => (
+                            <div
+                              key={i}
+                              className="flex items-center gap-3 text-sm text-gray-700 bg-white/80 rounded-lg p-2"
+                            >
+                              <div
+                                className={`w-3 h-3 bg-gradient-to-r ${vivencia.color} rounded-full flex-shrink-0`}
+                              ></div>
+                              <span className="font-medium">{item}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-gray-700 leading-relaxed mb-6">{vivencia.description}</p>
-
-                    <div className="space-y-3 mb-6">
-                      <h4 className="font-semibold text-gray-800 flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-amber-500" />
-                        Inclui:
-                      </h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        {vivencia.includes.map((item, i) => (
-                          <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                            <div className={`w-2 h-2 bg-gradient-to-r ${vivencia.color} rounded-full`}></div>
-                            {item}
-                          </div>
-                        ))}
-                      </div>
+                    {/* CTA */}
+                    <div className="text-center">
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <Button
+                          className={`bg-gradient-to-r ${vivencia.color} hover:shadow-xl text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 text-lg`}
+                          onClick={() => {
+                            const subject = `Interesse em ${vivencia.title}`
+                            const body = `Olá! Tenho interesse na vivência "${vivencia.title}". Gostaria de saber mais informações sobre datas, valores e como participar.`
+                            window.location.href = `mailto:bayanativa@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+                          }}
+                        >
+                          <Heart className="w-5 h-5 mr-2" />
+                          Despertar Potencial
+                          <ArrowRight className="w-5 h-5 ml-2" />
+                        </Button>
+                      </motion.div>
                     </div>
-
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button
-                        className={`w-full bg-gradient-to-r ${vivencia.color} hover:shadow-xl text-white rounded-xl font-semibold transition-all duration-300`}
-                        onClick={() => {
-                          const subject = `Interesse em ${vivencia.title}`
-                          const body = `Olá! Tenho interesse na vivência "${vivencia.title}". Gostaria de saber mais informações sobre datas, valores e como participar.`
-                          window.location.href = `mailto:bayanativa@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-                        }}
-                      >
-                        <Heart className="w-4 h-4 mr-2" />
-                        Despertar Potencial
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </motion.div>
                   </div>
                 </div>
               </motion.div>
