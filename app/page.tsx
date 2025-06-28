@@ -16,10 +16,6 @@ import {
   Building,
   MessageSquare,
   Calendar,
-  TreePine,
-  GraduationCap,
-  ShoppingBag,
-  Users,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -362,7 +358,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Navigation Cards - Nova Estrutura */}
+      {/* Navigation Cards - Nova Estrutura com Ícones Personalizados */}
       <section className="py-12 sm:py-16 px-3 sm:px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -398,7 +394,13 @@ export default function HomePage() {
                   />
                   <div className="relative z-10">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                      <TreePine className="w-6 h-6 text-white" />
+                      <motion.img
+                        src="/images/icons/localizacao.png"
+                        alt="Localização"
+                        className="w-8 h-8 object-contain brightness-0 invert"
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                      />
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Serviços Baya Nativa</h3>
                     <p className="text-emerald-100 text-base sm:text-lg leading-relaxed">
@@ -434,7 +436,13 @@ export default function HomePage() {
                   />
                   <div className="relative z-10">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                      <GraduationCap className="w-6 h-6 text-white" />
+                      <motion.img
+                        src="/images/icons/aprendizagem.png"
+                        alt="Aprendizagem"
+                        className="w-8 h-8 object-contain brightness-0 invert"
+                        animate={{ rotate: [0, 10, -10, 0] }}
+                        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                      />
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Educação Regenerativa</h3>
                     <p className="text-amber-100 text-base sm:text-lg leading-relaxed">
@@ -469,7 +477,13 @@ export default function HomePage() {
                 />
                 <div className="relative z-10">
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                    <ShoppingBag className="w-6 h-6 text-white" />
+                    <motion.img
+                      src="/images/icons/confianca.png"
+                      alt="Confiança"
+                      className="w-8 h-8 object-contain brightness-0 invert"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                    />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Produtos das Florestas</h3>
                   <p className="text-rose-100 text-base sm:text-lg leading-relaxed">
@@ -516,7 +530,13 @@ export default function HomePage() {
                 />
                 <div className="relative z-10">
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                    <Users className="w-6 h-6 text-white" />
+                    <motion.img
+                      src="/images/icons/mapa-mental.png"
+                      alt="Mapa Mental"
+                      className="w-8 h-8 object-contain brightness-0 invert"
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                    />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Comunidades e Coletivos</h3>
                   <p className="text-orange-100 text-base sm:text-lg leading-relaxed">
