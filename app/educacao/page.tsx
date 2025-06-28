@@ -23,20 +23,20 @@ import Footer from "@/components/footer"
 
 export default function EducacaoPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-pink-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-cyan-50 relative overflow-hidden">
       {/* Padrões de fundo dinâmicos */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-40 h-24 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-20 left-10 w-40 h-24 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full blur-xl animate-pulse"></div>
         <div
-          className="absolute top-60 right-20 w-32 h-20 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl animate-pulse"
+          className="absolute top-60 right-20 w-32 h-20 bg-gradient-to-r from-cyan-400 to-teal-400 rounded-full blur-xl animate-pulse"
           style={{ animationDelay: "1s" }}
         ></div>
         <div
-          className="absolute bottom-40 left-1/4 w-36 h-22 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-xl animate-pulse"
+          className="absolute bottom-40 left-1/4 w-36 h-22 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-xl animate-pulse"
           style={{ animationDelay: "2s" }}
         ></div>
         <div
-          className="absolute bottom-20 right-1/3 w-28 h-18 bg-gradient-to-r from-green-400 to-yellow-400 rounded-full blur-xl animate-pulse"
+          className="absolute bottom-20 right-1/3 w-28 h-18 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full blur-xl animate-pulse"
           style={{ animationDelay: "3s" }}
         ></div>
       </div>
@@ -58,11 +58,11 @@ export default function EducacaoPage() {
               animate={{ scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-600 to-cyan-600">
                 Educação
               </span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-orange-500 to-teal-500">
                 Regenerativa
               </span>
             </motion.h1>
@@ -75,7 +75,7 @@ export default function EducacaoPage() {
               className="relative mx-auto max-w-4xl mb-8"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(251, 146, 60, 0.9) 0%, rgba(251, 113, 133, 0.9) 50%, rgba(168, 85, 247, 0.9) 100%)",
+                  "linear-gradient(135deg, rgba(251, 146, 60, 0.9) 0%, rgba(34, 197, 94, 0.9) 50%, rgba(6, 182, 212, 0.9) 100%)",
                 borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
                 padding: "3rem 2rem",
                 boxShadow: "0 20px 40px rgba(251, 146, 60, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
@@ -85,7 +85,7 @@ export default function EducacaoPage() {
               <p className="text-lg md:text-2xl text-white leading-relaxed font-medium">
                 Vamos aprender com a terra? Educação libertadora, originária, permacultura e artivismo para
                 <span className="font-bold text-yellow-200"> infâncias livres</span> e
-                <span className="font-bold text-pink-200"> futuros regenerativos</span>.
+                <span className="font-bold text-cyan-200"> futuros regenerativos</span>.
               </p>
             </motion.div>
 
@@ -121,7 +121,7 @@ export default function EducacaoPage() {
               <motion.div
                 className="flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold shadow-lg"
                 style={{
-                  background: "linear-gradient(45deg, #ec4899, #be185d)",
+                  background: "linear-gradient(45deg, #06b6d4, #0891b2)",
                   borderRadius: "50px",
                 }}
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -145,7 +145,7 @@ export default function EducacaoPage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-purple-600 font-serif">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-cyan-600 font-serif">
               Nossos Programas
             </h2>
             <p className="text-xl text-gray-700 max-w-2xl mx-auto font-medium">
@@ -163,62 +163,83 @@ export default function EducacaoPage() {
             >
               {/* Container oval */}
               <div
-                className="relative p-8 text-white shadow-2xl"
+                className="relative text-white shadow-2xl overflow-hidden"
                 style={{
                   background: "linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%)",
                   borderRadius: "60% 40% 70% 30% / 40% 50% 50% 60%",
                   minHeight: "500px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
                   border: "3px solid rgba(255, 255, 255, 0.2)",
                   boxShadow: "0 25px 50px rgba(5, 150, 105, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
                 }}
               >
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                  className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto backdrop-blur-sm"
-                >
-                  <Sprout className="w-10 h-10 text-white" />
-                </motion.div>
+                {/* Layout orgânico seguindo a forma oval */}
+                <div className="absolute inset-0 p-6">
+                  {/* Ícone no topo, seguindo a curva */}
+                  <motion.div
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                    className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm mx-auto mt-8"
+                  >
+                    <Sprout className="w-8 h-8 text-white" />
+                  </motion.div>
 
-                <h3 className="text-3xl font-bold mb-4 text-center font-serif">Escola da Floresta</h3>
-                <p className="text-lg leading-relaxed mb-6 text-center">
-                  Programa educativo imersivo onde crianças aprendem através do contato direto com a natureza,
-                  desenvolvendo autonomia e conexão com o meio ambiente.
-                </p>
+                  {/* Título curvado */}
+                  <div className="text-center mt-6 mb-4">
+                    <h3 className="text-2xl md:text-3xl font-bold font-serif">Escola da Floresta</h3>
+                  </div>
 
-                <div className="space-y-4 mb-6">
-                  <motion.div
-                    className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                    whileHover={{ scale: 1.02, x: 5 }}
-                  >
-                    <Lightbulb className="w-5 h-5 text-yellow-300" />
-                    <span className="font-semibold">EcoPedagogia</span>
-                  </motion.div>
-                  <motion.div
-                    className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                    whileHover={{ scale: 1.02, x: 5 }}
-                  >
-                    <Zap className="w-5 h-5 text-yellow-300" />
-                    <span className="font-semibold">Processos de Aprendizagem Disruptivo</span>
-                  </motion.div>
-                  <motion.div
-                    className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                    whileHover={{ scale: 1.02, x: 5 }}
-                  >
-                    <Globe className="w-5 h-5 text-yellow-300" />
-                    <span className="font-semibold">Desenvolvimento Integral</span>
-                  </motion.div>
+                  {/* Texto principal em formato oval */}
+                  <div className="px-4 md:px-8 text-center mb-6">
+                    <p className="text-base md:text-lg leading-relaxed">
+                      Programa educativo imersivo onde crianças aprendem através do contato direto com a natureza,
+                      desenvolvendo autonomia e conexão com o meio ambiente.
+                    </p>
+                  </div>
+
+                  {/* Tópicos dispostos em arco */}
+                  <div className="relative h-32 mb-6">
+                    <motion.div
+                      className="absolute left-1/2 top-0 transform -translate-x-1/2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
+                      style={{ transform: "translateX(-50%) translateY(0px)" }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <Lightbulb className="w-4 h-4 text-yellow-300" />
+                        <span className="text-sm font-semibold">EcoPedagogia</span>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      className="absolute left-1/4 top-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <Zap className="w-4 h-4 text-yellow-300" />
+                        <span className="text-sm font-semibold">Aprendizagem Disruptiva</span>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      className="absolute right-1/4 top-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <Globe className="w-4 h-4 text-yellow-300" />
+                        <span className="text-sm font-semibold">Desenvolvimento Integral</span>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Botão na base do oval */}
+                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/30 backdrop-blur-sm px-6 py-2 rounded-full font-semibold transition-all duration-300">
+                        Saiba Mais
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </motion.div>
+                  </div>
                 </div>
-
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="text-center">
-                  <Button className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/30 backdrop-blur-sm px-8 py-3 rounded-full font-semibold transition-all duration-300">
-                    Saiba Mais
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </motion.div>
               </div>
             </motion.div>
 
@@ -231,62 +252,82 @@ export default function EducacaoPage() {
             >
               {/* Container oval */}
               <div
-                className="relative p-8 text-white shadow-2xl"
+                className="relative text-white shadow-2xl overflow-hidden"
                 style={{
                   background: "linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ea580c 100%)",
                   borderRadius: "40% 60% 30% 70% / 50% 40% 60% 50%",
                   minHeight: "500px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
                   border: "3px solid rgba(255, 255, 255, 0.2)",
                   boxShadow: "0 25px 50px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
                 }}
               >
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                  className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto backdrop-blur-sm"
-                >
-                  <Users className="w-10 h-10 text-white" />
-                </motion.div>
+                {/* Layout orgânico seguindo a forma oval */}
+                <div className="absolute inset-0 p-6">
+                  {/* Ícone no topo */}
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                    className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm mx-auto mt-8"
+                  >
+                    <Users className="w-8 h-8 text-white" />
+                  </motion.div>
 
-                <h3 className="text-3xl font-bold mb-4 text-center font-serif">Formação de Educadores</h3>
-                <p className="text-lg leading-relaxed mb-6 text-center">
-                  Capacitação para educadores que desejam integrar práticas regenerativas e saberes ancestrais em suas
-                  metodologias pedagógicas.
-                </p>
+                  {/* Título */}
+                  <div className="text-center mt-6 mb-4">
+                    <h3 className="text-2xl md:text-3xl font-bold font-serif">Formação de Educadores</h3>
+                  </div>
 
-                <div className="space-y-4 mb-6">
-                  <motion.div
-                    className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                    whileHover={{ scale: 1.02, x: 5 }}
-                  >
-                    <Rocket className="w-5 h-5 text-yellow-200" />
-                    <span className="font-semibold">Metodologias ativas</span>
-                  </motion.div>
-                  <motion.div
-                    className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                    whileHover={{ scale: 1.02, x: 5 }}
-                  >
-                    <Star className="w-5 h-5 text-yellow-200" />
-                    <span className="font-semibold">Saberes originários</span>
-                  </motion.div>
-                  <motion.div
-                    className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                    whileHover={{ scale: 1.02, x: 5 }}
-                  >
-                    <Heart className="w-5 h-5 text-yellow-200" />
-                    <span className="font-semibold">Educação regenerativa</span>
-                  </motion.div>
+                  {/* Texto principal */}
+                  <div className="px-4 md:px-8 text-center mb-6">
+                    <p className="text-base md:text-lg leading-relaxed">
+                      Capacitação para educadores que desejam integrar práticas regenerativas e saberes ancestrais em
+                      suas metodologias pedagógicas.
+                    </p>
+                  </div>
+
+                  {/* Tópicos em disposição orgânica */}
+                  <div className="relative h-32 mb-6">
+                    <motion.div
+                      className="absolute left-1/2 top-0 transform -translate-x-1/2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <Rocket className="w-4 h-4 text-yellow-200" />
+                        <span className="text-sm font-semibold">Metodologias Ativas</span>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      className="absolute left-1/4 top-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <Star className="w-4 h-4 text-yellow-200" />
+                        <span className="text-sm font-semibold">Saberes Originários</span>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      className="absolute right-1/4 top-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <Heart className="w-4 h-4 text-yellow-200" />
+                        <span className="text-sm font-semibold">Educação Regenerativa</span>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Botão na base */}
+                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/30 backdrop-blur-sm px-6 py-2 rounded-full font-semibold transition-all duration-300">
+                        Participar
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </motion.div>
+                  </div>
                 </div>
-
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="text-center">
-                  <Button className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/30 backdrop-blur-sm px-8 py-3 rounded-full font-semibold transition-all duration-300">
-                    Participar
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -298,61 +339,87 @@ export default function EducacaoPage() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="relative"
           >
-            {/* Container oval grande */}
+            {/* Container oval grande horizontal */}
             <div
-              className="relative p-8 text-gray-800 shadow-2xl"
+              className="relative text-gray-800 shadow-2xl overflow-hidden"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(251, 191, 36, 0.9) 0%, rgba(251, 146, 60, 0.9) 50%, rgba(251, 113, 133, 0.9) 100%)",
+                  "linear-gradient(135deg, rgba(251, 191, 36, 0.9) 0%, rgba(6, 182, 212, 0.9) 50%, rgba(20, 184, 166, 0.9) 100%)",
                 borderRadius: "50% 50% 50% 50% / 30% 30% 70% 70%",
                 border: "3px solid rgba(255, 255, 255, 0.3)",
-                boxShadow: "0 25px 50px rgba(251, 146, 60, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+                boxShadow: "0 25px 50px rgba(6, 182, 212, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+                minHeight: "400px",
               }}
             >
-              <h3 className="text-3xl font-bold mb-8 text-center text-white font-serif">Projetos em Andamento</h3>
+              <div className="absolute inset-0 p-8">
+                {/* Título no topo */}
+                <h3 className="text-3xl font-bold mb-8 text-center text-white font-serif">Projetos em Andamento</h3>
 
-              <div className="grid md:grid-cols-3 gap-8">
-                <motion.div className="text-center" whileHover={{ scale: 1.05, y: -5 }} transition={{ duration: 0.3 }}>
-                  <div
-                    className="w-20 h-20 mx-auto mb-4 flex items-center justify-center text-white shadow-lg"
-                    style={{
-                      background: "linear-gradient(45deg, #8b5cf6, #a855f7)",
-                      borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
-                    }}
+                {/* Projetos dispostos em arco */}
+                <div className="relative h-48">
+                  {/* Letramento Web3 - esquerda */}
+                  <motion.div
+                    className="absolute left-1/4 top-4 transform -translate-x-1/2"
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <Code className="w-10 h-10" />
-                  </div>
-                  <h4 className="font-bold text-white mb-2 text-lg">Letramento Web3</h4>
-                  <p className="text-sm text-white/90">Educação digital para o futuro descentralizado</p>
-                </motion.div>
+                    <div className="text-center">
+                      <div
+                        className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
+                        style={{
+                          background: "linear-gradient(45deg, #3b82f6, #06b6d4)",
+                          borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
+                        }}
+                      >
+                        <Code className="w-8 h-8" />
+                      </div>
+                      <h4 className="font-bold text-white mb-1 text-lg">Letramento Web3</h4>
+                      <p className="text-sm text-white/90 max-w-32">Educação digital para o futuro descentralizado</p>
+                    </div>
+                  </motion.div>
 
-                <motion.div className="text-center" whileHover={{ scale: 1.05, y: -5 }} transition={{ duration: 0.3 }}>
-                  <div
-                    className="w-20 h-20 mx-auto mb-4 flex items-center justify-center text-white shadow-lg"
-                    style={{
-                      background: "linear-gradient(45deg, #10b981, #059669)",
-                      borderRadius: "50% 50% 50% 50% / 40% 40% 60% 60%",
-                    }}
+                  {/* Horta Pedagógica - centro */}
+                  <motion.div
+                    className="absolute left-1/2 top-0 transform -translate-x-1/2"
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <Sprout className="w-10 h-10" />
-                  </div>
-                  <h4 className="font-bold text-white mb-2 text-lg">Horta Pedagógica</h4>
-                  <p className="text-sm text-white/90">Aprendizado através do cultivo e cuidado com plantas</p>
-                </motion.div>
+                    <div className="text-center">
+                      <div
+                        className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
+                        style={{
+                          background: "linear-gradient(45deg, #10b981, #059669)",
+                          borderRadius: "50% 50% 50% 50% / 40% 40% 60% 60%",
+                        }}
+                      >
+                        <Sprout className="w-8 h-8" />
+                      </div>
+                      <h4 className="font-bold text-white mb-1 text-lg">Horta Pedagógica</h4>
+                      <p className="text-sm text-white/90 max-w-32">Aprendizado através do cultivo e cuidado</p>
+                    </div>
+                  </motion.div>
 
-                <motion.div className="text-center" whileHover={{ scale: 1.05, y: -5 }} transition={{ duration: 0.3 }}>
-                  <div
-                    className="w-20 h-20 mx-auto mb-4 flex items-center justify-center text-white shadow-lg"
-                    style={{
-                      background: "linear-gradient(45deg, #ec4899, #be185d)",
-                      borderRadius: "50% 50% 50% 50% / 70% 30% 30% 70%",
-                    }}
+                  {/* Arte e Natureza - direita */}
+                  <motion.div
+                    className="absolute right-1/4 top-4 transform translate-x-1/2"
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <Palette className="w-10 h-10" />
-                  </div>
-                  <h4 className="font-bold text-white mb-2 text-lg">Arte e Natureza</h4>
-                  <p className="text-sm text-white/90">Expressão artística inspirada nos elementos naturais</p>
-                </motion.div>
+                    <div className="text-center">
+                      <div
+                        className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
+                        style={{
+                          background: "linear-gradient(45deg, #f59e0b, #f97316)",
+                          borderRadius: "50% 50% 50% 50% / 70% 30% 30% 70%",
+                        }}
+                      >
+                        <Palette className="w-8 h-8" />
+                      </div>
+                      <h4 className="font-bold text-white mb-1 text-lg">Arte e Natureza</h4>
+                      <p className="text-sm text-white/90 max-w-32">Expressão artística inspirada na natureza</p>
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -361,7 +428,7 @@ export default function EducacaoPage() {
 
       {/* Join Us */}
       <section className="py-16 px-4 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-cyan-600 to-teal-600"></div>
 
         <div className="relative max-w-4xl mx-auto">
           <motion.div
@@ -383,12 +450,7 @@ export default function EducacaoPage() {
             transition={{ duration: 0.8, delay: 1 }}
             className="relative"
             style={{
-              background: "rgba(255, 255, 255, 0.95)",
-              borderRadius: "50% 50% 50% 50% / 40% 40% 60% 60%",
               padding: "3rem 2rem",
-              backdropFilter: "blur(10px)",
-              border: "2px solid rgba(255, 255, 255, 0.3)",
-              boxShadow: "0 25px 50px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)",
             }}
           >
             <form className="space-y-6">
@@ -397,7 +459,7 @@ export default function EducacaoPage() {
                   <label className="block text-sm font-medium text-gray-800 mb-2">Nome Completo</label>
                   <Input
                     placeholder="Seu nome"
-                    className="border-2 border-orange-200 focus:border-orange-500 rounded-full h-12"
+                    className="border-2 border-white/30 focus:border-cyan-400 rounded-full h-12 bg-white/20 backdrop-blur-sm text-white placeholder-white/70"
                   />
                 </div>
                 <div>
@@ -405,14 +467,14 @@ export default function EducacaoPage() {
                   <Input
                     type="email"
                     placeholder="seu@email.com"
-                    className="border-2 border-orange-200 focus:border-orange-500 rounded-full h-12"
+                    className="border-2 border-white/30 focus:border-cyan-400 rounded-full h-12 bg-white/20 backdrop-blur-sm text-white placeholder-white/70"
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">Como gostaria de participar?</label>
-                <select className="w-full p-3 border-2 border-orange-200 rounded-full focus:border-orange-500 focus:outline-none h-12">
+                <select className="w-full p-3 border-2 border-white/30 rounded-full focus:border-cyan-400 focus:outline-none h-12 bg-white/20 backdrop-blur-sm text-white">
                   <option>Facilitador/Educador</option>
                   <option>Apoiador/Voluntário</option>
                   <option>Família Interessada</option>
@@ -425,7 +487,7 @@ export default function EducacaoPage() {
                 <Textarea
                   placeholder="Compartilhe sua experiência, motivações e como gostaria de contribuir..."
                   rows={4}
-                  className="border-2 border-orange-200 focus:border-orange-500 rounded-3xl"
+                  className="border-2 border-white/30 focus:border-cyan-400 rounded-3xl bg-white/20 backdrop-blur-sm text-white placeholder-white/70"
                 />
               </div>
 
@@ -435,7 +497,7 @@ export default function EducacaoPage() {
                   size="lg"
                   className="px-12 py-4 text-lg font-semibold rounded-full transition-all duration-300 text-white shadow-xl"
                   style={{
-                    background: "linear-gradient(45deg, #f59e0b, #ec4899, #8b5cf6)",
+                    background: "linear-gradient(45deg, #f59e0b, #06b6d4, #10b981)",
                     border: "none",
                   }}
                 >
