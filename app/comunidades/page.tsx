@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { ArrowRight, Users, Globe, BookOpen, Sprout, Heart, ExternalLink } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ArrowRight, Users, Globe, BookOpen, Sprout, Heart } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
@@ -140,140 +139,25 @@ export default function ComunidadesColetivosPage() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="mb-16"
+              className="mb-16 flex justify-center"
             >
-              <div className="grid lg:grid-cols-12 gap-8 items-center">
-                {/* Conteúdo */}
-                <div className="lg:col-span-7 space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <div
-                        className={`w-16 h-16 bg-gradient-to-br ${community.color} rounded-2xl flex items-center justify-center shadow-xl`}
-                      >
-                        <community.icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-3xl font-bold text-gray-800 font-serif">{community.name}</h3>
-                        <p className="text-lg text-gray-600 font-medium">{community.subtitle}</p>
-                      </div>
-                    </div>
-
-                    <p className="text-xl text-gray-700 leading-relaxed">{community.description}</p>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-3 gap-4">
-                      {community.stats.map((stat, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.5, delay: index * 0.2 + idx * 0.1 }}
-                          className="text-center p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm"
-                        >
-                          <div
-                            className={`text-2xl font-bold bg-gradient-to-r ${community.color} bg-clip-text text-transparent`}
-                          >
-                            {stat.value}
-                          </div>
-                          <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    {/* Features */}
-                    <div className="grid md:grid-cols-2 gap-4">
-                      {community.features.map((feature, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.2 + idx * 0.1 }}
-                          className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm"
-                        >
-                          <div className={`w-2 h-2 bg-gradient-to-r ${community.color} rounded-full`}></div>
-                          <span className="text-gray-700 font-medium">{feature}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
-                      <p className="text-center text-lg font-medium text-gray-700 italic">"{community.highlight}"</p>
-                    </div>
-
-                    {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <Link href={community.href}>
-                          <Button
-                            size="lg"
-                            className={`bg-gradient-to-r ${community.color} hover:shadow-xl text-white px-8 py-4 rounded-full font-semibold transition-all duration-300`}
-                          >
-                            <community.icon className="w-5 h-5 mr-2" />
-                            Conhecer {community.name}
-                            <ArrowRight className="w-5 h-5 ml-2" />
-                          </Button>
-                        </Link>
-                      </motion.div>
-
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <Button
-                          size="lg"
-                          variant="outline"
-                          className={`border-2 hover:shadow-lg px-8 py-4 rounded-full font-semibold transition-all duration-300 bg-white/80 backdrop-blur-sm`}
-                          style={{
-                            borderColor: community.color.includes("orange") ? "#ea580c" : "#dc2626",
-                            color: community.color.includes("orange") ? "#ea580c" : "#dc2626",
-                          }}
-                          onClick={() => window.open(community.externalLink, "_blank")}
-                        >
-                          <ExternalLink className="w-5 h-5 mr-2" />
-                          Site Oficial
-                        </Button>
-                      </motion.div>
-                    </div>
+              <Link href={community.href}>
+                <div className="text-center">
+                  <div className="mb-6">
+                    <img
+                      src={community.image || "/placeholder.svg"}
+                      alt={community.name}
+                      className="h-32 w-auto mx-auto object-contain filter drop-shadow-lg"
+                    />
+                  </div>
+                  <div
+                    className={`inline-flex items-center gap-2 bg-gradient-to-r ${community.color} text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300`}
+                  >
+                    <span>Explorar Rede</span>
+                    <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
-
-                {/* Visual */}
-                <div className="lg:col-span-5">
-                  <Link href={community.href}>
-                    <motion.div
-                      whileHover={{ scale: 1.02, y: -5 }}
-                      className={`relative h-80 rounded-3xl overflow-hidden shadow-2xl cursor-pointer ${community.bgColor} border border-white/50`}
-                    >
-                      <div className={`absolute inset-0 bg-gradient-to-br ${community.color} opacity-10`}></div>
-                      <div className="absolute inset-0 flex items-center justify-center p-8">
-                        <div className="text-center">
-                          <motion.div
-                            animate={{
-                              scale: [1, 1.05, 1],
-                              rotate: [0, 2, -2, 0],
-                            }}
-                            transition={{
-                              duration: 4,
-                              repeat: Number.POSITIVE_INFINITY,
-                              ease: "easeInOut",
-                            }}
-                            className="mb-6"
-                          >
-                            <img
-                              src={community.image || "/placeholder.svg"}
-                              alt={community.name}
-                              className="h-32 w-auto mx-auto object-contain filter drop-shadow-lg"
-                            />
-                          </motion.div>
-                          <div
-                            className={`inline-flex items-center gap-2 bg-gradient-to-r ${community.color} text-white px-6 py-3 rounded-full font-semibold shadow-lg`}
-                          >
-                            <span>Explorar Rede</span>
-                            <ArrowRight className="w-4 h-4" />
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </Link>
-                </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

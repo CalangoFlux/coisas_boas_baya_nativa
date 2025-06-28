@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { ArrowRight, Star, Heart, Leaf, Droplets, Coffee, TreePine, Sparkles } from "lucide-react"
+import { Star, Heart, Leaf, Droplets, Coffee, TreePine, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -30,7 +30,7 @@ export default function ProdutosDasFlorestasPage() {
       description:
         "Farmácia nativa, superalimentos e medicinas naturais da floresta amazônica. Conectando pequenos produtores e consumidores conscientes.",
       href: "/namoa",
-      image: "/images/baya-nativa-logo.png", // Usando logo da Baya Nativa como placeholder
+      image: "/images/namoa-logo.png",
       color: "from-emerald-600 to-green-700",
       bgColor: "bg-gradient-to-br from-emerald-50 to-green-100",
       features: ["Farmácia Nativa", "Extratos Absolutos", "SuperAlimentos", "Óleos Fitoterápicos"],
@@ -125,106 +125,46 @@ export default function ProdutosDasFlorestasPage() {
             </p>
           </motion.div>
 
-          <div className="space-y-16">
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {stores.map((store, index) => (
               <motion.div
                 key={store.id}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                className={`grid lg:grid-cols-12 gap-8 items-center ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
+                className="text-center"
               >
-                {/* Conteúdo */}
-                <div className={`lg:col-span-7 space-y-6 ${index % 2 === 1 ? "lg:col-start-6" : ""}`}>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <div
-                        className={`w-16 h-16 bg-gradient-to-br ${store.color} rounded-2xl flex items-center justify-center shadow-xl`}
-                      >
-                        <store.icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-3xl font-bold text-gray-800 font-serif">{store.name}</h3>
-                        <p className="text-lg text-gray-600 font-medium">{store.subtitle}</p>
-                      </div>
-                    </div>
+                <motion.div whileHover={{ scale: 1.05, y: -5 }} className="mb-6">
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.02, 1],
+                      rotate: [0, 1, -1, 0],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "easeInOut",
+                      delay: index * 0.5,
+                    }}
+                  >
+                    <img
+                      src={store.image || "/placeholder.svg"}
+                      alt={store.name}
+                      className="h-40 w-auto mx-auto object-contain filter drop-shadow-lg"
+                    />
+                  </motion.div>
+                </motion.div>
 
-                    <p className="text-xl text-gray-700 leading-relaxed">{store.description}</p>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      {store.features.map((feature, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.2 + idx * 0.1 }}
-                          className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm"
-                        >
-                          <div className={`w-2 h-2 bg-gradient-to-r ${store.color} rounded-full`}></div>
-                          <span className="text-gray-700 font-medium">{feature}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
-                      <p className="text-center text-lg font-medium text-gray-700 italic">"{store.highlight}"</p>
-                    </div>
-
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="pt-4">
-                      <Link href={store.href}>
-                        <Button
-                          size="lg"
-                          className={`bg-gradient-to-r ${store.color} hover:shadow-xl text-white px-8 py-4 rounded-full font-semibold transition-all duration-300`}
-                        >
-                          <store.icon className="w-5 h-5 mr-2" />
-                          Explorar {store.name}
-                          <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
-                      </Link>
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Visual */}
-                <div className={`lg:col-span-5 ${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link href={store.href}>
-                    <motion.div
-                      whileHover={{ scale: 1.02, y: -5 }}
-                      className={`relative h-80 rounded-3xl overflow-hidden shadow-2xl cursor-pointer ${store.bgColor} border border-white/50`}
+                    <Button
+                      size="lg"
+                      className={`bg-gradient-to-r ${store.color} hover:shadow-xl text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 text-lg`}
                     >
-                      <div className={`absolute inset-0 bg-gradient-to-br ${store.color} opacity-10`}></div>
-                      <div className="absolute inset-0 flex items-center justify-center p-8">
-                        <div className="text-center">
-                          <motion.div
-                            animate={{
-                              scale: [1, 1.05, 1],
-                              rotate: [0, 2, -2, 0],
-                            }}
-                            transition={{
-                              duration: 4,
-                              repeat: Number.POSITIVE_INFINITY,
-                              ease: "easeInOut",
-                              delay: index * 0.5,
-                            }}
-                            className="mb-6"
-                          >
-                            <img
-                              src={store.image || "/placeholder.svg"}
-                              alt={store.name}
-                              className="h-32 w-auto mx-auto object-contain filter drop-shadow-lg"
-                            />
-                          </motion.div>
-                          <div
-                            className={`inline-flex items-center gap-2 bg-gradient-to-r ${store.color} text-white px-6 py-3 rounded-full font-semibold shadow-lg`}
-                          >
-                            <span>Visitar Loja</span>
-                            <ArrowRight className="w-4 h-4" />
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
+                      Acessar a Loja
+                    </Button>
                   </Link>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>

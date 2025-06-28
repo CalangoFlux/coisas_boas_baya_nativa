@@ -134,7 +134,18 @@ export default function NamoaPage() {
             className="text-center mb-16"
           >
             <div className="mb-8">
-              <h1 className="text-4xl md:text-8xl font-bold text-emerald-900 mb-4 font-serif tracking-tight">NAMOA</h1>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                className="flex justify-center mb-6"
+              >
+                <img
+                  src="/images/namoa-logo.png"
+                  alt="Namoa - Produtos da Natureza"
+                  className="h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 w-auto max-w-[90vw] object-contain"
+                />
+              </motion.div>
               <h2 className="text-xl md:text-3xl font-medium text-emerald-700 mb-6">Produtos da Natureza</h2>
             </div>
 
