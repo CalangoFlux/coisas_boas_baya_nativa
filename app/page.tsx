@@ -4,7 +4,19 @@ import type React from "react"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { Leaf, Heart, Sparkles, ArrowRight, X, Mail, User, Phone, Building, MessageSquare } from "lucide-react"
+import {
+  Leaf,
+  Heart,
+  Sparkles,
+  ArrowRight,
+  X,
+  Mail,
+  User,
+  Phone,
+  Building,
+  MessageSquare,
+  Calendar,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -90,19 +102,22 @@ ${formData.description}
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+          className="relative container-floating rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
         >
           <div className="p-6 sm:p-8">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-emerald-900 font-serif">Seja Parceir@!</h2>
-              <Button variant="ghost" size="sm" onClick={onClose} className="hover:bg-emerald-50">
+              <div className="flex items-center space-x-3">
+                <img src="/images/baya-nativa-logo.png" alt="Baya Nativa" className="h-8 w-8 object-contain" />
+                <h2 className="text-2xl sm:text-3xl font-bold text-emerald-900 font-serif">Seja Parceir@!</h2>
+              </div>
+              <Button variant="ghost" size="sm" onClick={onClose} className="hover:bg-emerald-50 btn-floating">
                 <X className="w-5 h-5" />
               </Button>
             </div>
 
             {submitted ? (
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-8">
-                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 container-floating">
                   <Mail className="w-8 h-8 text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-bold text-emerald-900 mb-2">Solicitação Enviada!</h3>
@@ -130,7 +145,7 @@ ${formData.description}
                         onChange={handleChange}
                         placeholder="Seu nome"
                         required
-                        className="border-emerald-200 focus:border-emerald-500"
+                        className="border-emerald-200 focus:border-emerald-500 container-floating"
                       />
                     </div>
                     <div>
@@ -144,7 +159,7 @@ ${formData.description}
                         onChange={handleChange}
                         placeholder="(11) 99999-9999"
                         required
-                        className="border-emerald-200 focus:border-emerald-500"
+                        className="border-emerald-200 focus:border-emerald-500 container-floating"
                       />
                     </div>
                   </div>
@@ -160,7 +175,7 @@ ${formData.description}
                       onChange={handleChange}
                       placeholder="Nome da sua marca ou projeto"
                       required
-                      className="border-emerald-200 focus:border-emerald-500"
+                      className="border-emerald-200 focus:border-emerald-500 container-floating"
                     />
                   </div>
 
@@ -177,14 +192,14 @@ ${formData.description}
                       rows={6}
                       maxLength={2000}
                       required
-                      className="border-emerald-200 focus:border-emerald-500"
+                      className="border-emerald-200 focus:border-emerald-500 container-floating"
                     />
                     <div className="text-right text-xs text-emerald-600 mt-1">
                       {formData.description.length}/2000 caracteres
                     </div>
                   </div>
 
-                  <div className="bg-emerald-50 p-4 rounded-xl">
+                  <div className="container-floating p-4 rounded-xl">
                     <p className="text-sm text-emerald-700 text-center">
                       <Heart className="w-4 h-4 inline mr-1" />
                       Buscamos parceiros alinhados com valores regenerativos, sustentabilidade e impacto positivo.
@@ -194,7 +209,7 @@ ${formData.description}
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 text-lg font-semibold rounded-xl transition-all duration-300"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 text-lg font-semibold rounded-xl transition-all duration-300 btn-floating"
                   >
                     {isSubmitting ? (
                       <>
@@ -224,7 +239,7 @@ export default function HomePage() {
   const tooltips = {
     regenerativo:
       "Práticas que restauram e revitalizam ecossistemas, promovendo a regeneração natural dos solos, biodiversidade e ciclos da vida, indo além da sustentabilidade para criar impacto positivo.",
-    indigena:
+    originario:
       "Fusão entre saberes ancestrais dos povos originários e práticas contemporâneas, valorizando conhecimentos tradicionais em diálogo com inovações atuais para soluções integradas.",
     impacto:
       "Ações e iniciativas que geram transformações benéficas duradouras na sociedade, meio ambiente e economia, criando valor compartilhado para comunidades e ecossistemas.",
@@ -235,7 +250,7 @@ export default function HomePage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-12 sm:pb-16 px-3 sm:px-4 overflow-hidden">
+      <section className="relative pt-24 pb-16 px-3 sm:px-4 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200')] bg-cover bg-center opacity-10"></div>
 
         <div className="relative max-w-6xl mx-auto text-center">
@@ -245,43 +260,99 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="mb-6 sm:mb-8"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-emerald-900 mb-4 sm:mb-6 font-serif leading-tight">
-              Coisas Boas da
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-700">
-                Baya Nativa
-              </span>
-            </h1>
+            {/* Logo Hero */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex justify-center mb-8"
+            >
+              <img
+                src="/images/baya-nativa-logo.png"
+                alt="Baya Nativa"
+                className="h-20 w-20 sm:h-28 sm:w-28 md:h-36 md:w-36 object-contain animate-float-gentle"
+              />
+            </motion.div>
 
-            <p className="text-base sm:text-lg md:text-2xl text-emerald-700 max-w-3xl mx-auto leading-relaxed px-2">
+            <motion.h1
+              className="text-3xl sm:text-4xl md:text-7xl font-bold text-emerald-900 mb-4 sm:mb-6 font-serif leading-tight"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
+              Coisas Boas da
+              <motion.span
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-700"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                Baya Nativa
+              </motion.span>
+            </motion.h1>
+
+            <motion.p
+              className="text-base sm:text-lg md:text-2xl text-emerald-700 max-w-3xl mx-auto leading-relaxed px-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
               Um portal que celebra saberes, sabores e soluções da floresta viva.
-            </p>
+            </motion.p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
             className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2"
           >
             <TooltipBadge tooltip={tooltips.regenerativo}>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full border border-emerald-200 cursor-help text-sm sm:text-base">
-                <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+              <motion.div
+                className="flex items-center gap-2 container-floating px-3 sm:px-4 py-2 rounded-full border border-emerald-200 cursor-help text-sm sm:text-base animate-float-gentle"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                >
+                  <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+                </motion.div>
                 <span className="text-emerald-800 font-medium">Regenerativo</span>
-              </div>
+              </motion.div>
             </TooltipBadge>
 
-            <TooltipBadge tooltip={tooltips.indigena}>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full border border-emerald-200 cursor-help text-sm sm:text-base">
-                <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-rose-500" />
-                <span className="text-emerald-800 font-medium">Indígena-Contemporâneo</span>
-              </div>
+            <TooltipBadge tooltip={tooltips.originario}>
+              <motion.div
+                className="flex items-center gap-2 container-floating px-3 sm:px-4 py-2 rounded-full border border-emerald-200 cursor-help text-sm sm:text-base animate-float-slow"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.5 }}
+                >
+                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-rose-500" />
+                </motion.div>
+                <span className="text-emerald-800 font-medium">Originário-Contemporâneo</span>
+              </motion.div>
             </TooltipBadge>
 
             <TooltipBadge tooltip={tooltips.impacto}>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full border border-emerald-200 cursor-help text-sm sm:text-base">
-                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
+              <motion.div
+                className="flex items-center gap-2 container-floating px-3 sm:px-4 py-2 rounded-full border border-emerald-200 cursor-help text-sm sm:text-base animate-float"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                >
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
+                </motion.div>
                 <span className="text-emerald-800 font-medium">Impacto Positivo</span>
-              </div>
+              </motion.div>
             </TooltipBadge>
           </motion.div>
         </div>
@@ -310,21 +381,30 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="group"
+              className="group animate-float-gentle"
+              whileHover={{ scale: 1.02 }}
             >
               <Link href="/servicos">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-600 to-green-700 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-transform duration-300 group-hover:scale-105 shadow-xl">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-600 to-green-700 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl">
                   <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-green-700/20"
+                    animate={{ opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  />
                   <div className="relative z-10">
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Serviços Baya Nativa</h3>
                     <p className="text-emerald-100 text-base sm:text-lg leading-relaxed">
                       Consultorias, vivências e assessorias em regeneração ambiental e cultural
                     </p>
                   </div>
-                  <div className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base">
+                  <motion.div
+                    className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base"
+                    whileHover={{ x: 5 }}
+                  >
                     <span>Transforme seu território</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                  </div>
+                  </motion.div>
                 </div>
               </Link>
             </motion.div>
@@ -334,21 +414,30 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="group"
+              className="group animate-float-slow"
+              whileHover={{ scale: 1.02 }}
             >
               <Link href="/educacao">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-transform duration-300 group-hover:scale-105 shadow-xl">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl">
                   <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20"
+                    animate={{ opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
+                  />
                   <div className="relative z-10">
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Educação Regenerativa</h3>
                     <p className="text-amber-100 text-base sm:text-lg leading-relaxed">
                       Educação libertadora, permacultura e artivismo para infâncias livres
                     </p>
                   </div>
-                  <div className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base">
+                  <motion.div
+                    className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base"
+                    whileHover={{ x: 5 }}
+                  >
                     <span>Vamos aprender com a terra?</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                  </div>
+                  </motion.div>
                 </div>
               </Link>
             </motion.div>
@@ -358,21 +447,30 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="group"
+              className="group animate-float"
+              whileHover={{ scale: 1.02 }}
             >
               <Link href="/cacau-flor">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-700 to-rose-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-transform duration-300 group-hover:scale-105 shadow-xl">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-700 to-rose-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl">
                   <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-slate-700/20 to-rose-600/20"
+                    animate={{ opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
+                  />
                   <div className="relative z-10">
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Chocolateria Cacau Flor</h3>
                     <p className="text-rose-100 text-base sm:text-lg leading-relaxed">
                       Chocolates artesanais sofisticados, feitos com amor e matéria-prima nobre
                     </p>
                   </div>
-                  <div className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base">
+                  <motion.div
+                    className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base"
+                    whileHover={{ x: 5 }}
+                  >
                     <span>Desperte seus sentidos</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                  </div>
+                  </motion.div>
                 </div>
               </Link>
             </motion.div>
@@ -382,21 +480,30 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.0 }}
-              className="group"
+              className="group animate-float-gentle"
+              whileHover={{ scale: 1.02 }}
             >
               <Link href="/namoa">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-700 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-transform duration-300 group-hover:scale-105 shadow-xl">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-700 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl">
                   <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-teal-600/20 to-cyan-700/20"
+                    animate={{ opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 3 }}
+                  />
                   <div className="relative z-10">
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Namoa</h3>
                     <p className="text-teal-100 text-base sm:text-lg leading-relaxed">
                       Farmácia nativa com medicinas naturais, superalimentos e produtos da floresta
                     </p>
                   </div>
-                  <div className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base">
+                  <motion.div
+                    className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base"
+                    whileHover={{ x: 5 }}
+                  >
                     <span>Cure-se com a sabedoria</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                  </div>
+                  </motion.div>
                 </div>
               </Link>
             </motion.div>
@@ -407,11 +514,17 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}
-            className="group"
+            className="group animate-float-slow"
+            whileHover={{ scale: 1.01 }}
           >
             <Link href="/teia-dos-povos">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 p-6 sm:p-8 h-48 sm:h-64 flex flex-col justify-between transition-transform duration-300 group-hover:scale-105 shadow-xl">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 p-6 sm:p-8 h-48 sm:h-64 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl">
                 <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=1200')] bg-cover bg-center opacity-20"></div>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-orange-600/20 via-red-600/20 to-purple-600/20"
+                  animate={{ opacity: [0.2, 0.4, 0.2] }}
+                  transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                />
                 <div className="relative z-10 text-center">
                   <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Teia dos Povos</h3>
                   <p className="text-orange-100 text-base sm:text-xl leading-relaxed max-w-3xl mx-auto">
@@ -419,11 +532,72 @@ export default function HomePage() {
                     agroecologia
                   </p>
                 </div>
-                <div className="relative z-10 flex items-center justify-center text-white font-semibold text-base sm:text-lg">
+                <motion.div
+                  className="relative z-10 flex items-center justify-center text-white font-semibold text-base sm:text-lg"
+                  whileHover={{ x: 5 }}
+                >
                   <span>Conecte-se com a rede</span>
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                </div>
+                </motion.div>
               </div>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Quick Agenda Preview */}
+      <section className="py-16 px-4 bg-gradient-to-r from-amber-50 to-orange-50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-4 font-serif">Próximas Vivências</h2>
+            <p className="text-lg text-emerald-700 max-w-2xl mx-auto">
+              Participe de nossas atividades e conecte-se com a comunidade regenerativa
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-md mx-auto text-center"
+          >
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-amber-200">
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
+                className="mb-4"
+              >
+                <Calendar className="w-12 h-12 text-amber-600 mx-auto" />
+              </motion.div>
+              <h3 className="text-2xl font-bold text-emerald-900 mb-3">Em Breve</h3>
+              <p className="text-emerald-700 text-lg mb-6">Fique por dentro!</p>
+              <p className="text-amber-600 text-sm">
+                Novas vivências e encontros serão anunciados em breve. Acompanhe nossa agenda para não perder nenhuma
+                oportunidade de conexão.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center mt-8"
+          >
+            <Link href="/agenda">
+              <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 btn-floating">
+                <Calendar className="w-5 h-5 mr-2" />
+                Ver Agenda Completa
+              </Button>
             </Link>
           </motion.div>
         </div>
@@ -443,14 +617,16 @@ export default function HomePage() {
             <p className="text-base sm:text-xl text-emerald-100 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
               Junte-se a nós nesta jornada de regeneração, sabedoria ancestral e transformação positiva
             </p>
-            <Button
-              size="lg"
-              onClick={() => setIsPartnershipModalOpen(true)}
-              className="bg-white text-emerald-700 hover:bg-emerald-50 px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105"
-            >
-              <Heart className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              Seja Parceir@!
-            </Button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                size="lg"
+                onClick={() => setIsPartnershipModalOpen(true)}
+                className="bg-white text-emerald-700 hover:bg-emerald-50 px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 shadow-xl btn-floating"
+              >
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                Seja Parceir@!
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </section>

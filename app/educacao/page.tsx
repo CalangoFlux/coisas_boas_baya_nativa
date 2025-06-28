@@ -32,20 +32,20 @@ export default function EducacaoPage() {
             </h1>
 
             <p className="text-lg md:text-2xl text-amber-700 max-w-3xl mx-auto leading-relaxed mb-8">
-              Vamos aprender com a terra? Educação libertadora, indígena, permacultura e artivismo para infâncias
+              Vamos aprender com a terra? Educação libertadora, originária, permacultura e artivismo para infâncias
               livres.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3">
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-amber-200">
+              <div className="flex items-center gap-2 container-floating px-4 py-2 rounded-full border border-amber-200 animate-float-gentle">
                 <BookOpen className="w-5 h-5 text-amber-600" />
                 <span className="text-amber-800 font-medium">Educação Libertadora</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-amber-200">
+              <div className="flex items-center gap-2 container-floating px-4 py-2 rounded-full border border-amber-200 animate-float-slow">
                 <Sprout className="w-5 h-5 text-green-600" />
                 <span className="text-amber-800 font-medium">Permacultura</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-amber-200">
+              <div className="flex items-center gap-2 container-floating px-4 py-2 rounded-full border border-amber-200 animate-float">
                 <Heart className="w-5 h-5 text-rose-500" />
                 <span className="text-amber-800 font-medium">Infâncias Livres</span>
               </div>
@@ -75,9 +75,9 @@ export default function EducacaoPage() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-amber-100"
+              className="container-floating rounded-2xl p-8 shadow-lg border border-amber-100 animate-float-gentle"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 container-floating">
                 <Sprout className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-amber-900 mb-4">Escola da Floresta</h3>
@@ -99,7 +99,7 @@ export default function EducacaoPage() {
                   <span>Desenvolvimento integral</span>
                 </li>
               </ul>
-              <Button className="bg-green-600 hover:bg-green-700 text-white">
+              <Button className="bg-green-600 hover:bg-green-700 text-white btn-floating">
                 Saiba Mais
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -110,9 +110,9 @@ export default function EducacaoPage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-amber-100"
+              className="container-floating rounded-2xl p-8 shadow-lg border border-amber-100 animate-float-slow"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6 container-floating">
                 <Users className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-amber-900 mb-4">Formação de Educadores</h3>
@@ -127,14 +127,14 @@ export default function EducacaoPage() {
                 </li>
                 <li className="flex items-start space-x-2">
                   <Star className="w-4 h-4 mt-1 text-amber-500" />
-                  <span>Saberes indígenas</span>
+                  <span>Saberes originários</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <Star className="w-4 h-4 mt-1 text-amber-500" />
                   <span>Educação regenerativa</span>
                 </li>
               </ul>
-              <Button className="bg-amber-600 hover:bg-amber-700 text-white">
+              <Button className="bg-amber-600 hover:bg-amber-700 text-white btn-floating">
                 Participar
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -146,26 +146,26 @@ export default function EducacaoPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-2xl p-8"
+            className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-2xl p-8 container-floating animate-float"
           >
             <h3 className="text-2xl font-bold text-amber-900 mb-6 text-center">Projetos em Andamento</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 bg-amber-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-amber-200 rounded-full flex items-center justify-center mx-auto mb-4 container-floating">
                   <BookOpen className="w-8 h-8 text-amber-700" />
                 </div>
                 <h4 className="font-semibold text-amber-900 mb-2">Círculos de Leitura</h4>
                 <p className="text-sm text-amber-700">Encontros semanais para compartilhar histórias e saberes</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-4 container-floating">
                   <Sprout className="w-8 h-8 text-green-700" />
                 </div>
                 <h4 className="font-semibold text-amber-900 mb-2">Horta Pedagógica</h4>
                 <p className="text-sm text-amber-700">Aprendizado através do cultivo e cuidado com plantas</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-rose-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-rose-200 rounded-full flex items-center justify-center mx-auto mb-4 container-floating">
                   <Heart className="w-8 h-8 text-rose-700" />
                 </div>
                 <h4 className="font-semibold text-amber-900 mb-2">Arte e Natureza</h4>
@@ -191,22 +191,29 @@ export default function EducacaoPage() {
             </p>
           </motion.div>
 
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
+          <div className="container-floating rounded-2xl p-8 shadow-xl">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-amber-900 mb-2">Nome Completo</label>
-                  <Input placeholder="Seu nome" className="border-amber-200 focus:border-amber-500" />
+                  <Input
+                    placeholder="Seu nome"
+                    className="border-amber-200 focus:border-amber-500 container-floating"
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-amber-900 mb-2">Email</label>
-                  <Input type="email" placeholder="seu@email.com" className="border-amber-200 focus:border-amber-500" />
+                  <Input
+                    type="email"
+                    placeholder="seu@email.com"
+                    className="border-amber-200 focus:border-amber-500 container-floating"
+                  />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-amber-900 mb-2">Como gostaria de participar?</label>
-                <select className="w-full p-3 border border-amber-200 rounded-lg focus:border-amber-500 focus:outline-none">
+                <select className="w-full p-3 border border-amber-200 rounded-lg focus:border-amber-500 focus:outline-none container-floating">
                   <option>Facilitador/Educador</option>
                   <option>Apoiador/Voluntário</option>
                   <option>Família Interessada</option>
@@ -219,14 +226,14 @@ export default function EducacaoPage() {
                 <Textarea
                   placeholder="Compartilhe sua experiência, motivações e como gostaria de contribuir..."
                   rows={4}
-                  className="border-amber-200 focus:border-amber-500"
+                  className="border-amber-200 focus:border-amber-500 container-floating"
                 />
               </div>
 
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 text-lg font-semibold rounded-lg transition-all duration-300"
+                className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 text-lg font-semibold rounded-lg transition-all duration-300 btn-floating"
               >
                 <Heart className="w-5 h-5 mr-2" />
                 Fazer Parte da Comunidade

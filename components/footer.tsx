@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Leaf, Heart, Github, Code, Mail } from "lucide-react"
+import { Heart, Github, Code, Mail } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -8,11 +8,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Brand */}
           <div className="space-y-3 sm:space-y-4 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start space-x-2">
-              <div className="p-2 bg-emerald-800 rounded-full">
-                <Leaf className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-300" />
+            <div className="flex items-center justify-center md:justify-start space-x-3">
+              <div className="relative">
+                <img
+                  src="/images/baya-nativa-logo.png"
+                  alt="Baya Nativa"
+                  className="h-12 w-12 sm:h-14 sm:w-14 object-contain brightness-110"
+                />
               </div>
-              <span className="text-lg sm:text-xl font-bold text-white">Coisas Boas da Baya Nativa</span>
+              <div className="flex flex-col">
+                <span className="text-lg sm:text-xl font-bold text-white leading-tight">
+                  Coisas Boas da Baya Nativa
+                </span>
+                <span className="text-xs text-emerald-300 leading-tight">Saberes, Sabores e Soluções da Floresta</span>
+              </div>
             </div>
             <p className="text-emerald-200 leading-relaxed text-sm sm:text-base">
               Celebrando saberes, sabores e soluções da floresta viva através de práticas regenerativas e sabedoria

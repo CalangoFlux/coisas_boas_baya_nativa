@@ -1,7 +1,19 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Leaf, Users, Lightbulb, Target, Calendar, Mail } from "lucide-react"
+import {
+  Leaf,
+  Users,
+  Lightbulb,
+  Target,
+  Calendar,
+  Mail,
+  TreePine,
+  Hammer,
+  Palette,
+  Mountain,
+  ExternalLink,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,6 +21,45 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 
 export default function ServicosPage() {
+  const vivencias = [
+    {
+      title: "Imersões em Bioconstrução",
+      description: "Aprenda técnicas de construção natural usando adobe, bambu, palha e outros materiais locais",
+      duration: "3-5 dias",
+      participants: "8-15 pessoas",
+      icon: Hammer,
+      color: "from-amber-500 to-orange-600",
+      includes: ["Prática hands-on", "Materiais inclusos", "Alimentação", "Certificado"],
+    },
+    {
+      title: "Trilhas Agroflorestais",
+      description: "Vivência prática em sistemas agroflorestais, design regenerativo e manejo sustentável",
+      duration: "2-4 dias",
+      participants: "10-20 pessoas",
+      icon: TreePine,
+      color: "from-green-500 to-emerald-600",
+      includes: ["Caminhadas guiadas", "Plantio prático", "Colheita", "Material didático"],
+    },
+    {
+      title: "Oficinas de Tinturas e Saberes Tradicionais",
+      description: "Resgate de conhecimentos ancestrais sobre plantas medicinais e preparos naturais",
+      duration: "1-2 dias",
+      participants: "6-12 pessoas",
+      icon: Palette,
+      color: "from-purple-500 to-indigo-600",
+      includes: ["Coleta de plantas", "Preparos práticos", "Receitas tradicionais", "Kit básico"],
+    },
+    {
+      title: "Consultoria em Permacultura Territorial",
+      description: "Diagnóstico e planejamento regenerativo personalizado para propriedades e comunidades",
+      duration: "Personalizado",
+      participants: "1-5 pessoas",
+      icon: Mountain,
+      color: "from-teal-500 to-cyan-600",
+      includes: ["Diagnóstico completo", "Plano de ação", "Acompanhamento", "Relatório técnico"],
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
       <Header />
@@ -124,6 +175,117 @@ export default function ServicosPage() {
               </ul>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Vivências e Consultorias Section */}
+      <section className="py-16 px-4 bg-gradient-to-r from-emerald-100 to-green-100">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-4 font-serif">
+              Vivências e Consultorias
+            </h2>
+            <p className="text-lg text-emerald-700 max-w-3xl mx-auto">
+              Experiências transformadoras e consultorias especializadas para regeneração territorial
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {vivencias.map((vivencia, index) => (
+              <motion.div
+                key={vivencia.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 * index }}
+                className="bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg border border-emerald-100 hover:shadow-xl transition-all duration-300"
+              >
+                <div className={`h-2 bg-gradient-to-r ${vivencia.color}`}></div>
+                <div className="p-6">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-br ${vivencia.color} rounded-xl flex items-center justify-center`}
+                    >
+                      <vivencia.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-emerald-900">{vivencia.title}</h3>
+                      <div className="flex items-center space-x-4 text-sm text-emerald-600">
+                        <span>⏱️ {vivencia.duration}</span>
+                        <span>👥 {vivencia.participants}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-emerald-700 leading-relaxed mb-4">{vivencia.description}</p>
+
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-emerald-900 mb-2">Inclui:</h4>
+                    <ul className="grid grid-cols-2 gap-1 text-sm text-emerald-600">
+                      {vivencia.includes.map((item, i) => (
+                        <li key={i} className="flex items-center">
+                          <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></div>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Button
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl"
+                    onClick={() => {
+                      const subject = `Interesse em ${vivencia.title}`
+                      const body = `Olá! Tenho interesse na vivência "${vivencia.title}". Gostaria de saber mais informações sobre datas, valores e como participar.`
+                      window.location.href = `mailto:bayanativa@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+                    }}
+                  >
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Solicitar Informações
+                  </Button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center"
+          >
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-emerald-100">
+              <h3 className="text-2xl font-bold text-emerald-900 mb-4">Vivência Personalizada</h3>
+              <p className="text-emerald-700 mb-6 max-w-2xl mx-auto">
+                Cada território tem suas particularidades. Criamos vivências sob medida para atender às necessidades
+                específicas da sua comunidade ou propriedade.
+              </p>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                onClick={() => {
+                  const subject = "Solicitação de Vivência Personalizada"
+                  const body = `Olá! Gostaria de solicitar uma vivência personalizada para meu território/comunidade.
+
+Informações básicas:
+- Local: 
+- Número aproximado de participantes: 
+- Área de interesse: 
+- Objetivos: 
+- Período preferencial: 
+
+Aguardo retorno para conversarmos sobre as possibilidades.`
+                  window.location.href = `mailto:bayanativa@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+                }}
+              >
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Solicitar Vivência Personalizada
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 

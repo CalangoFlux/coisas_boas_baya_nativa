@@ -23,9 +23,9 @@ export default function TeiaDosPovosPage() {
       category: "Educação",
     },
     {
-      title: "I Pré-jornada de agroecologia no Território Indígena Maxakali",
+      title: "I Pré-jornada de agroecologia no Território Originário Maxakali",
       date: "16 de junho de 2025",
-      description: "Fortalecendo práticas agroecológicas nos territórios indígenas",
+      description: "Fortalecendo práticas agroecológicas nos territórios originários",
       image: "/placeholder.svg?height=300&width=400",
       category: "Agroecologia",
     },
@@ -41,7 +41,7 @@ export default function TeiaDosPovosPage() {
   const pillars = [
     {
       title: "Educação Ancestral",
-      description: "Fortalecimento dos sistemas educacionais indígenas e tradicionais",
+      description: "Fortalecimento dos sistemas educacionais originários e tradicionais",
       icon: BookOpen,
       color: "from-blue-500 to-cyan-600",
     },
@@ -91,12 +91,14 @@ export default function TeiaDosPovosPage() {
                 transition={{ duration: 0.6 }}
                 className="flex justify-center mb-6"
               >
-                <img src="/images/teia-povos-logo.png" alt="Teia dos Povos" className="h-32 md:h-40 w-auto" />
+                <div className="container-floating rounded-full p-4">
+                  <img src="/images/teia-povos-logo.png" alt="Teia dos Povos" className="h-32 md:h-40 w-auto" />
+                </div>
               </motion.div>
 
               {/* Padrão Geométrico Decorativo */}
               <div className="flex justify-center mb-8">
-                <div className="w-full max-w-4xl h-2 bg-gradient-to-r from-red-500 via-green-500 to-red-500 opacity-60 rounded-full"></div>
+                <div className="w-full max-w-4xl h-2 bg-gradient-to-r from-red-500 via-green-500 to-red-500 opacity-60 rounded-full container-floating"></div>
               </div>
             </div>
 
@@ -106,15 +108,15 @@ export default function TeiaDosPovosPage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-200 shadow-sm">
+              <div className="flex items-center gap-2 container-floating px-6 py-3 rounded-full border border-orange-200 shadow-sm animate-float-gentle">
                 <Users className="w-5 h-5 text-orange-600" />
                 <span className="text-gray-800 font-semibold">Povos Originários</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full border border-green-200 shadow-sm">
+              <div className="flex items-center gap-2 container-floating px-6 py-3 rounded-full border border-green-200 shadow-sm animate-float-slow">
                 <Sprout className="w-5 h-5 text-green-600" />
                 <span className="text-gray-800 font-semibold">Agroecologia</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full border border-blue-200 shadow-sm">
+              <div className="flex items-center gap-2 container-floating px-6 py-3 rounded-full border border-blue-200 shadow-sm animate-float">
                 <BookOpen className="w-5 h-5 text-blue-600" />
                 <span className="text-gray-800 font-semibold">Educação Ancestral</span>
               </div>
@@ -128,7 +130,7 @@ export default function TeiaDosPovosPage() {
             >
               <Button
                 size="lg"
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-xl"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-xl btn-floating"
                 onClick={() => window.open("https://teiadospovos.org/", "_blank")}
               >
                 <ExternalLink className="w-5 h-5 mr-2" />
@@ -137,7 +139,7 @@ export default function TeiaDosPovosPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl bg-white/80"
+                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl container-floating btn-floating bg-transparent"
               >
                 Conhecer a Rede
               </Button>
@@ -168,10 +170,10 @@ export default function TeiaDosPovosPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center"
+                className="container-floating rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center animate-float-gentle"
               >
                 <div
-                  className={`w-16 h-16 bg-gradient-to-br ${pillar.color} rounded-full flex items-center justify-center mx-auto mb-4`}
+                  className={`w-16 h-16 bg-gradient-to-br ${pillar.color} rounded-full flex items-center justify-center mx-auto mb-4 container-floating`}
                 >
                   <pillar.icon className="w-8 h-8 text-white" />
                 </div>
@@ -205,7 +207,7 @@ export default function TeiaDosPovosPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+                className="container-floating rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group animate-float-slow"
               >
                 <div className="aspect-video overflow-hidden">
                   <img
@@ -216,7 +218,7 @@ export default function TeiaDosPovosPage() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-semibold text-orange-600 bg-orange-100 px-3 py-1 rounded-full">
+                    <span className="text-sm font-semibold text-orange-600 bg-orange-100 px-3 py-1 rounded-full btn-floating">
                       {initiative.category}
                     </span>
                     <div className="flex items-center text-gray-500 text-sm">
@@ -228,7 +230,7 @@ export default function TeiaDosPovosPage() {
                   <p className="text-gray-600 leading-relaxed mb-4">{initiative.description}</p>
                   <Button
                     variant="outline"
-                    className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300 bg-transparent"
+                    className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300 bg-transparent btn-floating"
                   >
                     Saiba Mais
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -261,7 +263,7 @@ export default function TeiaDosPovosPage() {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center container-floating">
                     <Users className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -270,7 +272,7 @@ export default function TeiaDosPovosPage() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center container-floating">
                     <Sprout className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -279,7 +281,7 @@ export default function TeiaDosPovosPage() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center container-floating">
                     <BookOpen className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -299,16 +301,16 @@ export default function TeiaDosPovosPage() {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <img
                   src="/placeholder.svg?height=200&width=300"
-                  alt="Formação indígena"
-                  className="rounded-2xl shadow-xl"
+                  alt="Formação originária"
+                  className="rounded-2xl shadow-xl container-floating"
                 />
                 <img
                   src="/placeholder.svg?height=200&width=300"
                   alt="Encontro de povos"
-                  className="rounded-2xl shadow-xl mt-8"
+                  className="rounded-2xl shadow-xl mt-8 container-floating"
                 />
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+              <div className="container-floating-dark rounded-3xl p-8 border border-white/20">
                 <h3 className="text-2xl font-bold text-white mb-6 text-center">Áreas de Atuação</h3>
                 <div className="space-y-4 text-gray-200">
                   <div className="flex items-center space-x-3">
@@ -317,7 +319,7 @@ export default function TeiaDosPovosPage() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    <span>Defesa de territórios e direitos indígenas</span>
+                    <span>Defesa de territórios e direitos originários</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
@@ -358,7 +360,7 @@ export default function TeiaDosPovosPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-xl"
+                className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-xl btn-floating"
                 onClick={() => window.open("https://teiadospovos.org/", "_blank")}
               >
                 <ExternalLink className="w-5 h-5 mr-2" />
@@ -367,7 +369,7 @@ export default function TeiaDosPovosPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl bg-transparent"
+                className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl bg-transparent btn-floating"
               >
                 Conhecer Iniciativas
               </Button>
