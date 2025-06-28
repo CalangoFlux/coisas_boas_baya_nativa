@@ -245,7 +245,28 @@ export default function TeiaDosPovosPage() {
       {/* Mission Section */}
       <section className="py-16 px-4 bg-gradient-to-r from-gray-800 to-gray-700">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Imagem de abertura - Sementes Crioulas */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-12"
+          >
+            <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/images/teia-sementes-crioulas.png"
+                alt="Sementes crioulas da Teia dos Povos"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl md:text-2xl font-bold mb-2">Preservação de Sementes Crioulas</h3>
+                <p className="text-sm md:text-base opacity-90">Guardiões da biodiversidade e soberania alimentar</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -263,7 +284,7 @@ export default function TeiaDosPovosPage() {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center bg-white/90 backdrop-blur-sm">
+                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
                     <Users className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -272,7 +293,7 @@ export default function TeiaDosPovosPage() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center bg-white/90 backdrop-blur-sm">
+                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
                     <Sprout className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -281,7 +302,7 @@ export default function TeiaDosPovosPage() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center bg-white/90 backdrop-blur-sm">
+                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
                     <BookOpen className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -298,19 +319,7 @@ export default function TeiaDosPovosPage() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="relative"
             >
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <img
-                  src="/placeholder.svg?height=200&width=300"
-                  alt="Formação originária"
-                  className="rounded-2xl shadow-xl bg-white/90 backdrop-blur-sm"
-                />
-                <img
-                  src="/placeholder.svg?height=200&width=300"
-                  alt="Encontro de povos"
-                  className="rounded-2xl shadow-xl mt-8 bg-white/90 backdrop-blur-sm"
-                />
-              </div>
-              <div className="bg-emerald-600/90 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+              <div className="bg-emerald-600/90 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-2xl">
                 <h3 className="text-2xl font-bold text-white mb-6 text-center">Áreas de Atuação</h3>
                 <div className="space-y-4 text-gray-200">
                   <div className="flex items-center space-x-3">
@@ -341,12 +350,42 @@ export default function TeiaDosPovosPage() {
               </div>
             </motion.div>
           </div>
+
+          {/* Imagem de fechamento - Manifestação */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/images/teia-manifestacao-agua.png"
+                alt="Manifestação pela defesa da água"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-l from-black/40 to-transparent"></div>
+              <div className="absolute bottom-4 right-4 text-white text-right">
+                <h3 className="text-xl md:text-2xl font-bold mb-2">Resistência e Luta pelos Direitos</h3>
+                <p className="text-sm md:text-base opacity-90">Água não é mercadoria - Defesa dos bens comuns</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-orange-600 to-red-600">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 px-4 relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/images/teia-povos-background.png')",
+          }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-900/85 via-red-900/80 to-orange-900/85"></div>
+
+        <div className="relative max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -369,7 +408,7 @@ export default function TeiaDosPovosPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl bg-transparent"
+                className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl bg-transparent backdrop-blur-sm"
               >
                 Conhecer Iniciativas
               </Button>
