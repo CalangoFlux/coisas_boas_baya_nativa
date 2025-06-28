@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Link from "next/link"
 
 import { motion } from "framer-motion"
 import { Coffee, Heart, ShoppingCart, Star, Award, Instagram, Sparkles } from "lucide-react"
@@ -264,42 +265,48 @@ export default function CacauFlorPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="inline-flex items-center gap-3 bg-transparent border-2 px-8 py-4 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105 font-arboria"
-                  style={
-                    {
-                      borderColor: "#e47428",
-                      color: "#e47428",
-                      "--tw-text-opacity": "1",
-                    } as React.CSSProperties
-                  }
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#e47428"
-                    e.currentTarget.style.color = "white"
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "transparent"
-                    e.currentTarget.style.color = "#e47428"
-                  }}
+                <Link
+                  href="https://www.instagram.com/cacauflornibs?igsh=MnB6YjhjcTIybzNr"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <motion.div
-                    animate={{
-                      y: [0, -4, 0],
-                      opacity: [0.8, 1, 0.8],
-                      scale: [1, 1.1, 1],
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="inline-flex items-center gap-3 bg-transparent border-2 px-8 py-4 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105 font-arboria"
+                    style={
+                      {
+                        borderColor: "#e47428",
+                        color: "#e47428",
+                        "--tw-text-opacity": "1",
+                      } as React.CSSProperties
+                    }
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#e47428"
+                      e.currentTarget.style.color = "white"
                     }}
-                    transition={{
-                      duration: 2,
-                      repeat: Number.POSITIVE_INFINITY,
-                      ease: "easeInOut",
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent"
+                      e.currentTarget.style.color = "#e47428"
                     }}
                   >
-                    <Instagram className="w-6 h-6" style={{ opacity: 0.9 }} />
-                  </motion.div>
-                  <span>@cacauflornibs</span>
-                </Button>
+                    <motion.div
+                      animate={{
+                        y: [0, -4, 0],
+                        opacity: [0.8, 1, 0.8],
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <Instagram className="w-6 h-6" style={{ opacity: 0.9 }} />
+                    </motion.div>
+                    <span>@cacauflornibs</span>
+                  </Button>
+                </Link>
               </motion.div>
             </div>
           </motion.div>
@@ -651,27 +658,33 @@ export default function CacauFlorPage() {
               verdadeiros apreciadores.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-xl hover:opacity-90 font-arboria"
-                style={{ backgroundColor: "#3b2f2f" }}
+              <Link
+                href="https://www.instagram.com/cacauflornibs?igsh=MnB6YjhjcTIybzNr"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <motion.div
-                  animate={{
-                    y: [0, -4, 0],
-                    opacity: [0.8, 1, 0.8],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                  }}
-                  className="inline-block"
+                <Button
+                  size="lg"
+                  className="text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-xl hover:opacity-90 font-arboria"
+                  style={{ backgroundColor: "#3b2f2f" }}
                 >
-                  <Instagram className="w-5 h-5 mr-2" style={{ opacity: 0.9 }} />
-                </motion.div>
-                Seguir @cacauflornibs
-              </Button>
+                  <motion.div
+                    animate={{
+                      y: [0, -4, 0],
+                      opacity: [0.8, 1, 0.8],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "easeInOut",
+                    }}
+                    className="inline-block"
+                  >
+                    <Instagram className="w-5 h-5 mr-2" style={{ opacity: 0.9 }} />
+                  </motion.div>
+                  Seguir @cacauflornibs
+                </Button>
+              </Link>
               <Button
                 size="lg"
                 variant="outline"
