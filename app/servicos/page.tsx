@@ -218,46 +218,84 @@ export default function ServicosPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="lg:col-span-5 relative"
             >
-              <div className="relative w-full h-96 lg:h-[500px]">
-                {/* Círculos Concêntricos */}
+              <div className="relative w-full h-96 lg:h-[500px] flex items-center justify-center">
+                {/* Torus Principal */}
                 <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 60, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                  className="absolute inset-0 border-4 border-amber-300 rounded-full opacity-30"
-                ></motion.div>
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 45, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                  className="absolute inset-8 border-4 border-emerald-300 rounded-full opacity-40"
-                ></motion.div>
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 30, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                  className="absolute inset-16 border-4 border-purple-300 rounded-full opacity-50"
-                ></motion.div>
+                  animate={{ rotateY: 360 }}
+                  transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                  className="relative w-80 h-80"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    perspective: "1000px",
+                  }}
+                >
+                  {/* Anel Externo do Torus */}
+                  <motion.div
+                    animate={{ rotateX: 360 }}
+                    transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                    className="absolute inset-0 border-8 border-amber-400 rounded-full opacity-60"
+                    style={{
+                      background:
+                        "conic-gradient(from 0deg, rgba(245, 158, 11, 0.3), rgba(251, 191, 36, 0.3), rgba(245, 158, 11, 0.3))",
+                    }}
+                  />
 
-                {/* Ícones Flutuantes */}
-                <motion.div
-                  animate={{ y: [-10, 10, -10] }}
-                  transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                  className="absolute top-8 right-8 w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center shadow-xl"
-                >
-                  <Compass className="w-8 h-8 text-white" />
+                  {/* Anel Médio do Torus */}
+                  <motion.div
+                    animate={{ rotateZ: -360 }}
+                    transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                    className="absolute inset-12 border-6 border-emerald-400 rounded-full opacity-70"
+                    style={{
+                      background:
+                        "conic-gradient(from 90deg, rgba(16, 185, 129, 0.3), rgba(52, 211, 153, 0.3), rgba(16, 185, 129, 0.3))",
+                    }}
+                  />
+
+                  {/* Anel Interno do Torus */}
+                  <motion.div
+                    animate={{ rotateY: -360 }}
+                    transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                    className="absolute inset-24 border-4 border-purple-400 rounded-full opacity-80"
+                    style={{
+                      background:
+                        "conic-gradient(from 180deg, rgba(147, 51, 234, 0.3), rgba(168, 85, 247, 0.3), rgba(147, 51, 234, 0.3))",
+                    }}
+                  />
+
+                  {/* Núcleo Central */}
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      rotate: [0, 180, 360],
+                    }}
+                    transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                    className="absolute inset-32 bg-gradient-to-br from-amber-500 via-emerald-500 to-purple-500 rounded-full flex items-center justify-center shadow-2xl"
+                  >
+                    <Sparkles className="w-8 h-8 text-white" />
+                  </motion.div>
                 </motion.div>
-                <motion.div
-                  animate={{ y: [10, -10, 10] }}
-                  transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
-                  className="absolute bottom-8 left-8 w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-500 rounded-full flex items-center justify-center shadow-xl"
-                >
-                  <TreePine className="w-8 h-8 text-white" />
-                </motion.div>
-                <motion.div
-                  animate={{ y: [-5, 15, -5] }}
-                  transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full flex items-center justify-center shadow-xl"
-                >
-                  <Zap className="w-10 h-10 text-white" />
-                </motion.div>
+
+                {/* Partículas Orbitais */}
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      rotate: 360,
+                      scale: [0.8, 1.2, 0.8],
+                    }}
+                    transition={{
+                      rotate: { duration: 12 + i * 2, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                      scale: { duration: 3 + i * 0.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
+                    }}
+                    className="absolute w-4 h-4 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full shadow-lg"
+                    style={{
+                      top: "50%",
+                      left: "50%",
+                      transformOrigin: `${120 + i * 20}px 0px`,
+                      transform: `translate(-50%, -50%) rotate(${i * 60}deg)`,
+                    }}
+                  />
+                ))}
               </div>
             </motion.div>
           </div>
@@ -374,7 +412,7 @@ export default function ServicosPage() {
         </div>
       </section>
 
-      {/* Vivências - Layout Orgânico */}
+      {/* Vivências - Layout Padronizado */}
       <section className="py-20 px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-amber-50/50 via-emerald-50/50 to-purple-50/50"></div>
 
@@ -395,7 +433,7 @@ export default function ServicosPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {vivencias.map((vivencia, index) => (
               <motion.div
                 key={vivencia.title}
@@ -404,28 +442,20 @@ export default function ServicosPage() {
                 transition={{ duration: 0.8, delay: index * 0.15 }}
                 className="group relative"
               >
-                <div
-                  className="relative bg-white/90 backdrop-blur-sm shadow-2xl border-2 border-gray-200 hover:shadow-3xl transition-all duration-500 overflow-hidden p-8"
-                  style={{
-                    borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-                    minHeight: "420px",
-                  }}
-                >
-                  {/* Padrão de Fundo Orgânico */}
+                {/* Container Principal - Formato Ovo Padronizado */}
+                <div className="relative bg-white/95 backdrop-blur-sm shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500 overflow-hidden rounded-[50px_30px_50px_30px/30px_50px_30px_50px] h-[580px]">
+                  {/* Padrão de Fundo Sutil */}
                   <div
-                    className="absolute inset-0 opacity-15"
+                    className="absolute inset-0 opacity-8"
                     style={{
-                      background: `
-                  radial-gradient(ellipse at 30% 20%, rgba(218, 165, 32, 0.4) 0%, transparent 40%),
-                  radial-gradient(ellipse at 70% 80%, rgba(34, 139, 34, 0.4) 0%, transparent 40%),
-                  radial-gradient(ellipse at 50% 50%, rgba(138, 43, 226, 0.3) 0%, transparent 50%)
-                `,
+                      background: `radial-gradient(circle at 25% 25%, rgba(245, 158, 11, 0.3) 0%, transparent 50%),
+                           radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.3) 0%, transparent 50%)`,
                     }}
-                  ></div>
+                  />
 
-                  <div className="relative z-10 h-full flex flex-col justify-between">
-                    {/* Header */}
-                    <div className="text-center mb-6">
+                  <div className="relative z-10 p-8 h-full flex flex-col">
+                    {/* Header - Altura Fixa */}
+                    <div className="text-center mb-6 flex-shrink-0">
                       <motion.div
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.8 }}
@@ -433,63 +463,69 @@ export default function ServicosPage() {
                       >
                         <vivencia.icon className="w-10 h-10 text-white" />
                       </motion.div>
-                      <h3 className="text-2xl font-bold text-gray-800 mb-2 font-serif leading-tight">
+
+                      <h3 className="text-xl font-bold text-gray-800 mb-3 font-serif leading-tight min-h-[3.5rem] flex items-center justify-center">
                         {vivencia.title}
                       </h3>
-                      <div className="flex items-center justify-center gap-6 text-sm text-gray-600 mb-4">
-                        <span className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full">
-                          <Calendar className="w-4 h-4" />
+
+                      <div className="flex items-center justify-center gap-3 text-sm text-gray-600">
+                        <span className="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full">
+                          <Calendar className="w-3 h-3" />
                           {vivencia.duration}
                         </span>
-                        <span className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full">
-                          <Users className="w-4 h-4" />
+                        <span className="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full">
+                          <Users className="w-3 h-3" />
                           {vivencia.participants}
                         </span>
                       </div>
                     </div>
 
-                    {/* Descrição */}
-                    <div className="flex-1 mb-6">
-                      <p className="text-gray-700 leading-relaxed text-center mb-6 text-lg">{vivencia.description}</p>
+                    {/* Descrição - Área Flexível */}
+                    <div className="flex-1 flex flex-col justify-between">
+                      <div className="mb-6">
+                        <p className="text-gray-700 leading-relaxed text-center text-base mb-6 line-clamp-4">
+                          {vivencia.description}
+                        </p>
 
-                      {/* Inclui - Layout Diagramado */}
-                      <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-4 mb-6">
-                        <h4 className="font-bold text-gray-800 flex items-center justify-center gap-2 mb-4">
-                          <Sparkles className="w-5 h-5 text-amber-500" />
-                          <span className="text-lg">Inclui</span>
-                        </h4>
-                        <div className="grid grid-cols-2 gap-3">
-                          {vivencia.includes.map((item, i) => (
-                            <div
-                              key={i}
-                              className="flex items-center gap-3 text-sm text-gray-700 bg-white/80 rounded-lg p-2"
-                            >
+                        {/* Inclui - Layout Compacto e Consistente */}
+                        <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-4">
+                          <h4 className="font-bold text-gray-800 flex items-center justify-center gap-2 mb-3 text-sm">
+                            <Sparkles className="w-4 h-4 text-amber-500" />
+                            <span>Inclui</span>
+                          </h4>
+                          <div className="space-y-2">
+                            {vivencia.includes.map((item, i) => (
                               <div
-                                className={`w-3 h-3 bg-gradient-to-r ${vivencia.color} rounded-full flex-shrink-0`}
-                              ></div>
-                              <span className="font-medium">{item}</span>
-                            </div>
-                          ))}
+                                key={i}
+                                className="flex items-center gap-2 text-sm text-gray-700 bg-white/80 rounded-lg p-2"
+                              >
+                                <div
+                                  className={`w-2 h-2 bg-gradient-to-r ${vivencia.color} rounded-full flex-shrink-0`}
+                                />
+                                <span className="font-medium text-xs leading-tight">{item}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* CTA */}
-                    <div className="text-center">
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <Button
-                          className={`bg-gradient-to-r ${vivencia.color} hover:shadow-xl text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 text-lg`}
-                          onClick={() => {
-                            const subject = `Interesse em ${vivencia.title}`
-                            const body = `Olá! Tenho interesse na vivência "${vivencia.title}". Gostaria de saber mais informações sobre datas, valores e como participar.`
-                            window.location.href = `mailto:bayanativa@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-                          }}
-                        >
-                          <Heart className="w-5 h-5 mr-2" />
-                          Despertar Potencial
-                          <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
-                      </motion.div>
+                      {/* CTA - Posição Fixa no Bottom */}
+                      <div className="text-center flex-shrink-0">
+                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                          <Button
+                            className={`bg-gradient-to-r ${vivencia.color} hover:shadow-xl text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 w-full`}
+                            onClick={() => {
+                              const subject = `Interesse em ${vivencia.title}`
+                              const body = `Olá! Tenho interesse na vivência "${vivencia.title}". Gostaria de saber mais informações sobre datas, valores e como participar.`
+                              window.location.href = `mailto:bayanativa@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+                            }}
+                          >
+                            <Heart className="w-4 h-4 mr-2" />
+                            Despertar Potencial
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        </motion.div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -504,7 +540,7 @@ export default function ServicosPage() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="mt-16 text-center"
           >
-            <div className="relative bg-gradient-to-r from-amber-600 via-emerald-600 to-purple-600 rounded-3xl p-12 shadow-2xl overflow-hidden">
+            <div className="relative bg-gradient-to-r from-amber-600 via-emerald-600 to-purple-600 rounded-3xl p-12 shadow-2xl overflow-hidden max-w-4xl mx-auto">
               <div className="absolute inset-0 bg-black/10"></div>
               <div className="relative z-10 text-white">
                 <h3 className="text-3xl font-bold mb-4 font-serif">Vivência Sob Medida</h3>
