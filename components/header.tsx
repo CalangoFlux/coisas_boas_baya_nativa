@@ -219,12 +219,12 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - Área de toque maior */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden hover:bg-emerald-50/30"
+              className="md:hidden hover:bg-emerald-50/30 p-3 min-h-[48px] min-w-[48px] flex items-center justify-center"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <motion.div animate={{ rotate: isMobileMenuOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
@@ -238,7 +238,7 @@ export default function Header() {
           </motion.div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Melhorado para idosos */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -248,7 +248,7 @@ export default function Header() {
               transition={{ duration: 0.3 }}
               className="md:hidden py-4 border-t border-emerald-100/30 overflow-hidden"
             >
-              <nav className="flex flex-col space-y-2">
+              <nav className="flex flex-col space-y-1">
                 {menuItems.map((item, index) => (
                   <motion.div
                     key={item.name}
@@ -259,18 +259,19 @@ export default function Header() {
                     {item.submenu ? (
                       <div>
                         <button
-                          className="w-full text-left text-emerald-700 hover:text-emerald-900 font-medium transition-colors duration-200 px-3 py-2 hover:bg-emerald-50/30 rounded-lg flex items-center justify-between"
+                          className="w-full text-left text-emerald-700 hover:text-emerald-900 font-medium transition-colors duration-200 px-4 py-4 hover:bg-emerald-50/30 rounded-lg flex items-center justify-between min-h-[56px] active:bg-emerald-100/50"
                           onClick={() => handleSubmenuToggle(item.name)}
                         >
-                          <div>
-                            <div className="font-semibold">{item.name}</div>
-                            <div className="text-xs text-emerald-600">{item.description}</div>
+                          <div className="flex-1">
+                            <div className="font-semibold text-base leading-relaxed">{item.name}</div>
+                            <div className="text-sm text-emerald-600 leading-relaxed">{item.description}</div>
                           </div>
                           <motion.div
                             animate={{ rotate: openSubmenu === item.name ? 90 : 0 }}
                             transition={{ duration: 0.2 }}
+                            className="ml-3 flex-shrink-0"
                           >
-                            <ChevronRight className="w-4 h-4" />
+                            <ChevronRight className="w-5 h-5" />
                           </motion.div>
                         </button>
                         <AnimatePresence>
@@ -291,14 +292,18 @@ export default function Header() {
                                 >
                                   <Link
                                     href={subItem.href}
-                                    className="block text-emerald-600 hover:text-emerald-800 transition-colors duration-200 px-3 py-2 hover:bg-emerald-50/20 rounded-lg"
+                                    className="block text-emerald-600 hover:text-emerald-800 transition-colors duration-200 px-4 py-4 hover:bg-emerald-50/20 rounded-lg min-h-[52px] flex items-center active:bg-emerald-100/40"
                                     onClick={() => {
                                       setIsMobileMenuOpen(false)
                                       setOpenSubmenu(null)
                                     }}
                                   >
-                                    <div className="font-medium">{subItem.name}</div>
-                                    <div className="text-xs text-emerald-500">{subItem.description}</div>
+                                    <div className="flex-1">
+                                      <div className="font-medium text-base leading-relaxed">{subItem.name}</div>
+                                      <div className="text-sm text-emerald-500 leading-relaxed">
+                                        {subItem.description}
+                                      </div>
+                                    </div>
                                   </Link>
                                 </motion.div>
                               ))}
@@ -309,11 +314,13 @@ export default function Header() {
                     ) : (
                       <Link
                         href={item.href}
-                        className="text-emerald-700 hover:text-emerald-900 font-medium transition-colors duration-200 px-3 py-2 hover:bg-emerald-50/30 rounded-lg block"
+                        className="text-emerald-700 hover:text-emerald-900 font-medium transition-colors duration-200 px-4 py-4 hover:bg-emerald-50/30 rounded-lg block min-h-[56px] flex items-center active:bg-emerald-100/50"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
-                        <div className="font-semibold">{item.name}</div>
-                        <div className="text-xs text-emerald-600">{item.description}</div>
+                        <div className="flex-1">
+                          <div className="font-semibold text-base leading-relaxed">{item.name}</div>
+                          <div className="text-sm text-emerald-600 leading-relaxed">{item.description}</div>
+                        </div>
                       </Link>
                     )}
                   </motion.div>
