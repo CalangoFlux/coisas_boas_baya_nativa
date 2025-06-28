@@ -16,6 +16,10 @@ import {
   Building,
   MessageSquare,
   Calendar,
+  TreePine,
+  GraduationCap,
+  ShoppingBag,
+  Users,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -358,7 +362,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Navigation Cards */}
+      {/* Navigation Cards - Nova Estrutura */}
       <section className="py-12 sm:py-16 px-3 sm:px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -371,11 +375,11 @@ export default function HomePage() {
               Explore Nossos Universos
             </h2>
             <p className="text-base sm:text-lg text-emerald-700 max-w-2xl mx-auto px-2">
-              Cada espaço é uma jornada única de transformação e conexão com a natureza
+              Quatro dimensões integradas de transformação regenerativa e conexão com a natureza
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* Serviços Baya Nativa */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -393,6 +397,9 @@ export default function HomePage() {
                     transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                   />
                   <div className="relative z-10">
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                      <TreePine className="w-6 h-6 text-white" />
+                    </div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Serviços Baya Nativa</h3>
                     <p className="text-emerald-100 text-base sm:text-lg leading-relaxed">
                       Consultorias, vivências e assessorias em regeneração ambiental e cultural
@@ -426,6 +433,9 @@ export default function HomePage() {
                     transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
                   />
                   <div className="relative z-10">
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                      <GraduationCap className="w-6 h-6 text-white" />
+                    </div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Educação Regenerativa</h3>
                     <p className="text-amber-100 text-base sm:text-lg leading-relaxed">
                       Educação libertadora, permacultura e artivismo para infâncias livres
@@ -442,7 +452,7 @@ export default function HomePage() {
               </Link>
             </motion.div>
 
-            {/* Cacau Flor */}
+            {/* Produtos das Florestas */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -450,32 +460,46 @@ export default function HomePage() {
               className="group animate-float"
               whileHover={{ scale: 1.02 }}
             >
-              <Link href="/cacau-flor">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-700 to-rose-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl">
-                  <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-slate-700/20 to-rose-600/20"
-                    animate={{ opacity: [0.2, 0.4, 0.2] }}
-                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
-                  />
-                  <div className="relative z-10">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Chocolateria Cacau Flor</h3>
-                    <p className="text-rose-100 text-base sm:text-lg leading-relaxed">
-                      Chocolates artesanais sofisticados, feitos com amor e matéria-prima nobre
-                    </p>
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-700 to-rose-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer">
+                <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-slate-700/20 to-rose-600/20"
+                  animate={{ opacity: [0.2, 0.4, 0.2] }}
+                  transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
+                />
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                    <ShoppingBag className="w-6 h-6 text-white" />
                   </div>
-                  <motion.div
-                    className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base"
-                    whileHover={{ x: 5 }}
-                  >
-                    <span>Desperte seus sentidos</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                  </motion.div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Produtos das Florestas</h3>
+                  <p className="text-rose-100 text-base sm:text-lg leading-relaxed">
+                    Sabores e medicinas da natureza: chocolates artesanais e farmácia nativa
+                  </p>
                 </div>
-              </Link>
+                <div className="relative z-10 space-y-2">
+                  <Link href="/cacau-flor">
+                    <motion.div
+                      className="flex items-center text-white/90 hover:text-white text-sm transition-colors"
+                      whileHover={{ x: 5 }}
+                    >
+                      <span>• Cacau Flor - Chocolateria artesanal</span>
+                      <ArrowRight className="w-3 h-3 ml-2" />
+                    </motion.div>
+                  </Link>
+                  <Link href="/namoa">
+                    <motion.div
+                      className="flex items-center text-white/90 hover:text-white text-sm transition-colors"
+                      whileHover={{ x: 5 }}
+                    >
+                      <span>• Namoa - Farmácia nativa</span>
+                      <ArrowRight className="w-3 h-3 ml-2" />
+                    </motion.div>
+                  </Link>
+                </div>
+              </div>
             </motion.div>
 
-            {/* Namoa */}
+            {/* Comunidades e Coletivos */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -483,65 +507,36 @@ export default function HomePage() {
               className="group animate-float-gentle"
               whileHover={{ scale: 1.02 }}
             >
-              <Link href="/namoa">
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-700 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl">
-                  <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-teal-600/20 to-cyan-700/20"
-                    animate={{ opacity: [0.2, 0.4, 0.2] }}
-                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 3 }}
-                  />
-                  <div className="relative z-10">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Namoa</h3>
-                    <p className="text-teal-100 text-base sm:text-lg leading-relaxed">
-                      Farmácia nativa com medicinas naturais, superalimentos e produtos da floresta
-                    </p>
-                  </div>
-                  <motion.div
-                    className="relative z-10 flex items-center text-white font-semibold text-sm sm:text-base"
-                    whileHover={{ x: 5 }}
-                  >
-                    <span>Cure-se com a sabedoria</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                  </motion.div>
-                </div>
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Teia dos Povos - Full Width */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            className="group animate-float-slow"
-            whileHover={{ scale: 1.01 }}
-          >
-            <Link href="/teia-dos-povos">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 p-6 sm:p-8 h-48 sm:h-64 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl">
-                <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=1200')] bg-cover bg-center opacity-20"></div>
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-600 to-purple-600 p-6 sm:p-8 h-64 sm:h-80 flex flex-col justify-between transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer">
+                <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=600')] bg-cover bg-center opacity-20"></div>
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-orange-600/20 via-red-600/20 to-purple-600/20"
+                  className="absolute inset-0 bg-gradient-to-br from-orange-600/20 to-purple-600/20"
                   animate={{ opacity: [0.2, 0.4, 0.2] }}
-                  transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 3 }}
                 />
-                <div className="relative z-10 text-center">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Teia dos Povos</h3>
-                  <p className="text-orange-100 text-base sm:text-xl leading-relaxed max-w-3xl mx-auto">
-                    Rede de articulação dos povos originários, fortalecendo territórios através da educação ancestral e
-                    agroecologia
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Comunidades e Coletivos</h3>
+                  <p className="text-orange-100 text-base sm:text-lg leading-relaxed">
+                    Redes de articulação dos povos originários e fortalecimento territorial
                   </p>
                 </div>
-                <motion.div
-                  className="relative z-10 flex items-center justify-center text-white font-semibold text-base sm:text-lg"
-                  whileHover={{ x: 5 }}
-                >
-                  <span>Conecte-se com a rede</span>
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                </motion.div>
+                <div className="relative z-10 space-y-2">
+                  <Link href="/teia-dos-povos">
+                    <motion.div
+                      className="flex items-center text-white/90 hover:text-white text-sm transition-colors"
+                      whileHover={{ x: 5 }}
+                    >
+                      <span>• Teia dos Povos - Rede originária</span>
+                      <ArrowRight className="w-3 h-3 ml-2" />
+                    </motion.div>
+                  </Link>
+                </div>
               </div>
-            </Link>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

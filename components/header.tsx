@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Header() {
@@ -12,15 +12,36 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const menuRef = useRef<HTMLDivElement>(null)
 
   const menuItems = [
-    { name: "Serviços Baya Nativa", href: "/servicos" },
-    { name: "Educação Regenerativa", href: "/educacao" },
-    { name: "Cacau Flor", href: "/cacau-flor" },
-    { name: "Namoa", href: "/namoa" },
-    { name: "Teia dos Povos", href: "/teia-dos-povos" },
-    { name: "Agenda", href: "/agenda" },
+    {
+      name: "Serviços Baya Nativa",
+      href: "/servicos",
+      description: "Consultorias, vivências e assessorias regenerativas",
+    },
+    {
+      name: "Educação Regenerativa",
+      href: "/educacao",
+      description: "Educação libertadora e permacultura",
+    },
+    {
+      name: "Produtos das Florestas",
+      href: "#",
+      description: "Sabores e medicinas da natureza",
+      submenu: [
+        { name: "Cacau Flor", href: "/cacau-flor", description: "Chocolateria artesanal sofisticada" },
+        { name: "Namoa", href: "/namoa", description: "Farmácia nativa e superalimentos" },
+      ],
+    },
+    {
+      name: "Comunidades e Coletivos",
+      href: "#",
+      description: "Redes de articulação e fortalecimento",
+      submenu: [{ name: "Teia dos Povos", href: "/teia-dos-povos", description: "Rede de povos originários" }],
+    },
+    { name: "Agenda", href: "/agenda", description: "Eventos e vivências" },
   ]
 
   // Handle scroll for retractable header
@@ -37,6 +58,7 @@ export default function Header() {
         setIsVisible(false)
         setIsDesktopMenuOpen(false)
         setIsMobileMenuOpen(false)
+        setOpenSubmenu(null)
       } else {
         // Scrolling up
         setIsVisible(true)
@@ -54,6 +76,7 @@ export default function Header() {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsDesktopMenuOpen(false)
+        setOpenSubmenu(null)
       }
     }
 
@@ -62,6 +85,10 @@ export default function Header() {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [])
+
+  const handleSubmenuToggle = (itemName: string) => {
+    setOpenSubmenu(openSubmenu === itemName ? null : itemName)
+  }
 
   return (
     <motion.header
@@ -120,7 +147,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl border border-emerald-100/30 py-2 overflow-hidden"
+                    className="absolute top-full left-0 mt-2 w-80 bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl border border-emerald-100/30 py-2 overflow-hidden"
                   >
                     {menuItems.map((item, index) => (
                       <motion.div
@@ -129,13 +156,66 @@ export default function Header() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.2, delay: index * 0.05 }}
                       >
-                        <Link
-                          href={item.href}
-                          className="block px-4 py-3 text-emerald-700 hover:text-emerald-900 hover:bg-emerald-50/30 transition-colors duration-200 font-medium rounded-lg mx-2"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
+                        {item.submenu ? (
+                          <div className="relative">
+                            <button
+                              className="w-full text-left px-4 py-3 text-emerald-700 hover:text-emerald-900 hover:bg-emerald-50/30 transition-colors duration-200 font-medium rounded-lg mx-2 flex items-center justify-between"
+                              onClick={() => handleSubmenuToggle(item.name)}
+                            >
+                              <div>
+                                <div className="font-semibold">{item.name}</div>
+                                <div className="text-xs text-emerald-600">{item.description}</div>
+                              </div>
+                              <motion.div
+                                animate={{ rotate: openSubmenu === item.name ? 90 : 0 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                <ChevronRight className="w-4 h-4" />
+                              </motion.div>
+                            </button>
+                            <AnimatePresence>
+                              {openSubmenu === item.name && (
+                                <motion.div
+                                  initial={{ opacity: 0, height: 0 }}
+                                  animate={{ opacity: 1, height: "auto" }}
+                                  exit={{ opacity: 0, height: 0 }}
+                                  transition={{ duration: 0.2 }}
+                                  className="ml-4 border-l-2 border-emerald-200 overflow-hidden"
+                                >
+                                  {item.submenu.map((subItem, subIndex) => (
+                                    <motion.div
+                                      key={subItem.name}
+                                      initial={{ opacity: 0, x: -10 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ duration: 0.2, delay: subIndex * 0.05 }}
+                                    >
+                                      <Link
+                                        href={subItem.href}
+                                        className="block px-4 py-2 text-emerald-600 hover:text-emerald-800 hover:bg-emerald-50/20 transition-colors duration-200 rounded-lg mx-2"
+                                        onClick={() => {
+                                          setIsDesktopMenuOpen(false)
+                                          setOpenSubmenu(null)
+                                        }}
+                                      >
+                                        <div className="font-medium">{subItem.name}</div>
+                                        <div className="text-xs text-emerald-500">{subItem.description}</div>
+                                      </Link>
+                                    </motion.div>
+                                  ))}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        ) : (
+                          <Link
+                            href={item.href}
+                            className="block px-4 py-3 text-emerald-700 hover:text-emerald-900 hover:bg-emerald-50/30 transition-colors duration-200 font-medium rounded-lg mx-2"
+                            onClick={() => setIsDesktopMenuOpen(false)}
+                          >
+                            <div className="font-semibold">{item.name}</div>
+                            <div className="text-xs text-emerald-600">{item.description}</div>
+                          </Link>
+                        )}
                       </motion.div>
                     ))}
                   </motion.div>
@@ -181,13 +261,66 @@ export default function Header() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.2, delay: index * 0.1 }}
                   >
-                    <Link
-                      href={item.href}
-                      className="text-emerald-700 hover:text-emerald-900 font-medium transition-colors duration-200 px-3 py-2 hover:bg-emerald-50/30 rounded-lg block"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
+                    {item.submenu ? (
+                      <div>
+                        <button
+                          className="w-full text-left text-emerald-700 hover:text-emerald-900 font-medium transition-colors duration-200 px-3 py-2 hover:bg-emerald-50/30 rounded-lg flex items-center justify-between"
+                          onClick={() => handleSubmenuToggle(item.name)}
+                        >
+                          <div>
+                            <div className="font-semibold">{item.name}</div>
+                            <div className="text-xs text-emerald-600">{item.description}</div>
+                          </div>
+                          <motion.div
+                            animate={{ rotate: openSubmenu === item.name ? 90 : 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </motion.div>
+                        </button>
+                        <AnimatePresence>
+                          {openSubmenu === item.name && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="ml-4 border-l-2 border-emerald-200 overflow-hidden"
+                            >
+                              {item.submenu.map((subItem, subIndex) => (
+                                <motion.div
+                                  key={subItem.name}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ duration: 0.2, delay: subIndex * 0.05 }}
+                                >
+                                  <Link
+                                    href={subItem.href}
+                                    className="block text-emerald-600 hover:text-emerald-800 transition-colors duration-200 px-3 py-2 hover:bg-emerald-50/20 rounded-lg"
+                                    onClick={() => {
+                                      setIsMobileMenuOpen(false)
+                                      setOpenSubmenu(null)
+                                    }}
+                                  >
+                                    <div className="font-medium">{subItem.name}</div>
+                                    <div className="text-xs text-emerald-500">{subItem.description}</div>
+                                  </Link>
+                                </motion.div>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-emerald-700 hover:text-emerald-900 font-medium transition-colors duration-200 px-3 py-2 hover:bg-emerald-50/30 rounded-lg block"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <div className="font-semibold">{item.name}</div>
+                        <div className="text-xs text-emerald-600">{item.description}</div>
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
               </nav>
