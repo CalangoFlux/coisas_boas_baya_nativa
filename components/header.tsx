@@ -114,14 +114,9 @@ export default function Header() {
               />
             </motion.div>
             <motion.div className="flex flex-col" whileHover={{ scale: 1.02 }}>
-              <span className="text-lg sm:text-xl font-bold text-emerald-900 leading-tight hidden sm:block">
-                Baya Nativa
-              </span>
+              <span className="text-lg sm:text-xl font-bold text-emerald-900 leading-tight">Baya Nativa</span>
               <span className="text-xs text-emerald-600 leading-tight hidden lg:block">Coisas Boas da Floresta</span>
             </motion.div>
-            <motion.span className="text-lg font-bold text-emerald-900 sm:hidden" whileHover={{ scale: 1.02 }}>
-              Baya
-            </motion.span>
           </Link>
 
           {/* Desktop Navigation - Collapsible Menu */}
