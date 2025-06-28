@@ -292,7 +292,7 @@ export default function EducacaoPage() {
           >
             {/* Container oval grande horizontal */}
             <div
-              className="relative text-gray-800 shadow-2xl overflow-hidden p-6 md:p-8"
+              className="relative text-gray-800 shadow-2xl overflow-hidden p-10 md:p-8"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(251, 191, 36, 0.9) 0%, rgba(6, 182, 212, 0.9) 50%, rgba(20, 184, 166, 0.9) 100%)",
@@ -307,7 +307,7 @@ export default function EducacaoPage() {
                 <h3 className="text-2xl md:text-3xl font-bold mb-10 text-white font-serif">Projetos em Andamento</h3>
 
                 {/* Projetos em grid responsivo */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 max-w-4xl md:max-w-3xl mx-auto">
                   {/* Letramento Web3 */}
                   <div className="text-center">
                     <div
