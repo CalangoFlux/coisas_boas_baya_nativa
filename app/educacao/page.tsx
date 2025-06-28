@@ -153,7 +153,7 @@ export default function EducacaoPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
             {/* Escola da Floresta */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -163,7 +163,7 @@ export default function EducacaoPage() {
             >
               {/* Container oval */}
               <div
-                className="relative text-white shadow-2xl overflow-hidden"
+                className="relative text-white shadow-2xl overflow-hidden p-6 md:p-8"
                 style={{
                   background: "linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%)",
                   borderRadius: "60% 40% 70% 30% / 40% 50% 50% 60%",
@@ -172,72 +172,47 @@ export default function EducacaoPage() {
                   boxShadow: "0 25px 50px rgba(5, 150, 105, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
                 }}
               >
-                {/* Layout orgânico seguindo a forma oval */}
-                <div className="absolute inset-0 p-6">
-                  {/* Ícone no topo, seguindo a curva */}
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                    className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm mx-auto mt-8"
-                  >
-                    <Sprout className="w-8 h-8 text-white" />
-                  </motion.div>
-
-                  {/* Título curvado */}
-                  <div className="text-center mt-6 mb-4">
-                    <h3 className="text-2xl md:text-3xl font-bold font-serif">Escola da Floresta</h3>
-                  </div>
-
-                  {/* Texto principal em formato oval */}
-                  <div className="px-4 md:px-8 text-center mb-6">
-                    <p className="text-base md:text-lg leading-relaxed">
+                <div className="flex flex-col h-full justify-between">
+                  {/* Header */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm mx-auto mb-4">
+                      <Sprout className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold font-serif mb-4">Escola da Floresta</h3>
+                    <p className="text-base md:text-lg leading-relaxed mb-6">
                       Programa educativo imersivo onde crianças aprendem através do contato direto com a natureza,
                       desenvolvendo autonomia e conexão com o meio ambiente.
                     </p>
                   </div>
 
-                  {/* Tópicos dispostos em arco */}
-                  <div className="relative h-32 mb-6">
-                    <motion.div
-                      className="absolute left-1/2 top-0 transform -translate-x-1/2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                      style={{ transform: "translateX(-50%) translateY(0px)" }}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                    >
+                  {/* Tópicos */}
+                  <div className="flex flex-wrap justify-center gap-3 mb-6">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                       <div className="flex items-center space-x-2">
                         <Lightbulb className="w-4 h-4 text-yellow-300" />
                         <span className="text-sm font-semibold">EcoPedagogia</span>
                       </div>
-                    </motion.div>
-
-                    <motion.div
-                      className="absolute left-1/4 top-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                    >
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                       <div className="flex items-center space-x-2">
                         <Zap className="w-4 h-4 text-yellow-300" />
                         <span className="text-sm font-semibold">Aprendizagem Disruptiva</span>
                       </div>
-                    </motion.div>
-
-                    <motion.div
-                      className="absolute right-1/4 top-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                    >
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                       <div className="flex items-center space-x-2">
                         <Globe className="w-4 h-4 text-yellow-300" />
                         <span className="text-sm font-semibold">Desenvolvimento Integral</span>
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
 
-                  {/* Botão na base do oval */}
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/30 backdrop-blur-sm px-6 py-2 rounded-full font-semibold transition-all duration-300">
-                        Saiba Mais
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </motion.div>
+                  {/* Botão */}
+                  <div className="text-center">
+                    <Button className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/30 backdrop-blur-sm px-6 py-2 rounded-full font-semibold transition-all duration-300">
+                      Saiba Mais
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -252,7 +227,7 @@ export default function EducacaoPage() {
             >
               {/* Container oval */}
               <div
-                className="relative text-white shadow-2xl overflow-hidden"
+                className="relative text-white shadow-2xl overflow-hidden p-6 md:p-8"
                 style={{
                   background: "linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ea580c 100%)",
                   borderRadius: "40% 60% 30% 70% / 50% 40% 60% 50%",
@@ -261,71 +236,47 @@ export default function EducacaoPage() {
                   boxShadow: "0 25px 50px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
                 }}
               >
-                {/* Layout orgânico seguindo a forma oval */}
-                <div className="absolute inset-0 p-6">
-                  {/* Ícone no topo */}
-                  <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm mx-auto mt-8"
-                  >
-                    <Users className="w-8 h-8 text-white" />
-                  </motion.div>
-
-                  {/* Título */}
-                  <div className="text-center mt-6 mb-4">
-                    <h3 className="text-2xl md:text-3xl font-bold font-serif">Formação de Educadores</h3>
-                  </div>
-
-                  {/* Texto principal */}
-                  <div className="px-4 md:px-8 text-center mb-6">
-                    <p className="text-base md:text-lg leading-relaxed">
+                <div className="flex flex-col h-full justify-between">
+                  {/* Header */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm mx-auto mb-4">
+                      <Users className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold font-serif mb-4">Formação de Educadores</h3>
+                    <p className="text-base md:text-lg leading-relaxed mb-6">
                       Capacitação para educadores que desejam integrar práticas regenerativas e saberes ancestrais em
                       suas metodologias pedagógicas.
                     </p>
                   </div>
 
-                  {/* Tópicos em disposição orgânica */}
-                  <div className="relative h-32 mb-6">
-                    <motion.div
-                      className="absolute left-1/2 top-0 transform -translate-x-1/2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                    >
+                  {/* Tópicos */}
+                  <div className="flex flex-wrap justify-center gap-3 mb-6">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                       <div className="flex items-center space-x-2">
                         <Rocket className="w-4 h-4 text-yellow-200" />
                         <span className="text-sm font-semibold">Metodologias Ativas</span>
                       </div>
-                    </motion.div>
-
-                    <motion.div
-                      className="absolute left-1/4 top-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                    >
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                       <div className="flex items-center space-x-2">
                         <Star className="w-4 h-4 text-yellow-200" />
                         <span className="text-sm font-semibold">Saberes Originários</span>
                       </div>
-                    </motion.div>
-
-                    <motion.div
-                      className="absolute right-1/4 top-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                    >
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                       <div className="flex items-center space-x-2">
                         <Heart className="w-4 h-4 text-yellow-200" />
                         <span className="text-sm font-semibold">Educação Regenerativa</span>
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
 
-                  {/* Botão na base */}
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/30 backdrop-blur-sm px-6 py-2 rounded-full font-semibold transition-all duration-300">
-                        Participar
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </motion.div>
+                  {/* Botão */}
+                  <div className="text-center">
+                    <Button className="bg-white/20 hover:bg-white/30 text-white border-2 border-white/30 backdrop-blur-sm px-6 py-2 rounded-full font-semibold transition-all duration-300">
+                      Participar
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -341,71 +292,65 @@ export default function EducacaoPage() {
           >
             {/* Container oval grande horizontal */}
             <div
-              className="relative text-gray-800 shadow-2xl overflow-hidden"
+              className="relative text-gray-800 shadow-2xl overflow-hidden p-6 md:p-8"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(251, 191, 36, 0.9) 0%, rgba(6, 182, 212, 0.9) 50%, rgba(20, 184, 166, 0.9) 100%)",
                 borderRadius: "50% 50% 50% 50% / 30% 30% 70% 70%",
                 border: "3px solid rgba(255, 255, 255, 0.3)",
                 boxShadow: "0 25px 50px rgba(6, 182, 212, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
-                minHeight: "400px",
+                minHeight: "350px",
               }}
             >
-              <div className="absolute inset-0 p-8">
-                {/* Título no topo */}
-                <h3 className="text-3xl font-bold mb-8 text-center text-white font-serif">Projetos em Andamento</h3>
+              <div className="text-center">
+                {/* Título */}
+                <h3 className="text-2xl md:text-3xl font-bold mb-10 text-white font-serif">Projetos em Andamento</h3>
 
-                {/* Projetos dispostos em arco */}
-                <div className="relative h-48">
-                  {/* Letramento Web3 - esquerda */}
-                  <div className="absolute left-1/4 top-4 transform -translate-x-1/2">
-                    <div className="text-center">
-                      <div
-                        className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
-                        style={{
-                          background: "linear-gradient(45deg, #3b82f6, #06b6d4)",
-                          borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
-                        }}
-                      >
-                        <Code className="w-8 h-8" />
-                      </div>
-                      <h4 className="font-bold text-white mb-1 text-lg">Letramento Web3</h4>
-                      <p className="text-sm text-white/90 max-w-32">Educação digital para o futuro descentralizado</p>
+                {/* Projetos em grid responsivo */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                  {/* Letramento Web3 */}
+                  <div className="text-center">
+                    <div
+                      className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
+                      style={{
+                        background: "linear-gradient(45deg, #3b82f6, #06b6d4)",
+                        borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
+                      }}
+                    >
+                      <Code className="w-8 h-8" />
                     </div>
+                    <h4 className="font-bold text-white mb-2 text-lg">Letramento Web3</h4>
+                    <p className="text-sm text-white/90">Educação digital para o futuro descentralizado</p>
                   </div>
 
-                  {/* Horta Pedagógica - centro */}
-                  <div className="absolute left-1/2 top-0 transform -translate-x-1/2">
-                    <div className="text-center">
-                      <div
-                        className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
-                        style={{
-                          background: "linear-gradient(45deg, #10b981, #059669)",
-                          borderRadius: "50% 50% 50% 50% / 40% 40% 60% 60%",
-                        }}
-                      >
-                        <Sprout className="w-8 h-8" />
-                      </div>
-                      <h4 className="font-bold text-white mb-1 text-lg">Horta Pedagógica</h4>
-                      <p className="text-sm text-white/90 max-w-32">Aprendizado através do cultivo e cuidado</p>
+                  {/* Horta Pedagógica */}
+                  <div className="text-center">
+                    <div
+                      className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
+                      style={{
+                        background: "linear-gradient(45deg, #10b981, #059669)",
+                        borderRadius: "50% 50% 50% 50% / 40% 40% 60% 60%",
+                      }}
+                    >
+                      <Sprout className="w-8 h-8" />
                     </div>
+                    <h4 className="font-bold text-white mb-2 text-lg">Horta Pedagógica</h4>
+                    <p className="text-sm text-white/90">Aprendizado através do cultivo e cuidado</p>
                   </div>
 
-                  {/* Arte e Natureza - direita */}
-                  <div className="absolute right-1/4 top-4 transform translate-x-1/2">
-                    <div className="text-center">
-                      <div
-                        className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
-                        style={{
-                          background: "linear-gradient(45deg, #f59e0b, #f97316)",
-                          borderRadius: "50% 50% 50% 50% / 70% 30% 30% 70%",
-                        }}
-                      >
-                        <Palette className="w-8 h-8" />
-                      </div>
-                      <h4 className="font-bold text-white mb-1 text-lg">Arte e Natureza</h4>
-                      <p className="text-sm text-white/90 max-w-32">Expressão artística inspirada na natureza</p>
+                  {/* Arte e Natureza */}
+                  <div className="text-center">
+                    <div
+                      className="w-16 h-16 mx-auto mb-3 flex items-center justify-center text-white shadow-lg"
+                      style={{
+                        background: "linear-gradient(45deg, #f59e0b, #f97316)",
+                        borderRadius: "50% 50% 50% 50% / 70% 30% 30% 70%",
+                      }}
+                    >
+                      <Palette className="w-8 h-8" />
                     </div>
+                    <h4 className="font-bold text-white mb-2 text-lg">Arte e Natureza</h4>
+                    <p className="text-sm text-white/90">Expressão artística inspirada na natureza</p>
                   </div>
                 </div>
               </div>
