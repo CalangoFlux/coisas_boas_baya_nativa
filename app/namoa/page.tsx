@@ -7,8 +7,13 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import { useCart } from "@/hooks/use-cart"
+import CartDrawer from "@/components/cart-drawer"
+import CartButton from "@/components/cart-button"
 
 export default function NamoaPage() {
+  const { addItem } = useCart("Namoa")
+
   const productCategories = [
     {
       name: "Farmácia Nativa",
@@ -159,15 +164,19 @@ export default function NamoaPage() {
               </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="inline-flex items-center gap-3 bg-emerald-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg"
-            >
-              <Heart className="w-6 h-6" />
-              <span>Cuidando com Amor</span>
-            </motion.div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="inline-flex items-center gap-3 bg-emerald-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg"
+              >
+                <Heart className="w-6 h-6" />
+                <span>Cuidando com Amor</span>
+              </motion.div>
+
+              <CartButton brand="Namoa" brandColor="#10b981" className="text-white" />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -223,8 +232,21 @@ export default function NamoaPage() {
                       <p className="text-emerald-700 text-sm mb-4 leading-relaxed">{product.description}</p>
                       <div className="flex justify-between items-center">
                         <span className="text-xl font-bold text-emerald-800">{product.price}</span>
-                        <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full">
-                          Solicitar
+                        <Button
+                          size="sm"
+                          className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full"
+                          onClick={() =>
+                            addItem({
+                              id: `namoa-${category.name}-${productIndex}`,
+                              name: product.name,
+                              price: Number.parseFloat(product.price.replace("R$ ", "").replace(",", ".")),
+                              weight: product.size,
+                              image: "/placeholder.svg",
+                              category: category.name,
+                            })
+                          }
+                        >
+                          Adicionar
                         </Button>
                       </div>
                     </div>
@@ -267,8 +289,21 @@ export default function NamoaPage() {
                 <p className="text-emerald-600 mb-4">{product.size}</p>
                 <div className="flex justify-between items-center">
                   <span className="text-xl font-bold text-emerald-800">{product.price}</span>
-                  <Button size="sm" className="bg-purple-600 hover:bg-purple-700 text-white rounded-full">
-                    Solicitar
+                  <Button
+                    size="sm"
+                    className="bg-purple-600 hover:bg-purple-700 text-white rounded-full"
+                    onClick={() =>
+                      addItem({
+                        id: `namoa-incense-${index}`,
+                        name: product.name,
+                        price: Number.parseFloat(product.price.replace("R$ ", "").replace(",", ".")),
+                        weight: product.size,
+                        image: "/placeholder.svg",
+                        category: "Incensos Naturais",
+                      })
+                    }
+                  >
+                    Adicionar
                   </Button>
                 </div>
               </motion.div>
@@ -457,6 +492,8 @@ export default function NamoaPage() {
           </motion.div>
         </div>
       </section>
+
+      <CartDrawer brand="Namoa" brandColor="#10b981" accentColor="#059669" />
 
       <Footer />
     </div>
