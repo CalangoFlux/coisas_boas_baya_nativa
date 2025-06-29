@@ -174,7 +174,7 @@ export default function CacauFlorPage() {
               >
                 <img
                   src="/images/cacau-flor-logo-new.png"
-                  alt="CacauFlor Chocolateria"
+                  alt="Cacau Flor Chocolateria"
                   className="h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 w-auto max-w-[90vw] object-contain"
                 />
               </motion.div>
@@ -184,7 +184,7 @@ export default function CacauFlorPage() {
               className="text-lg md:text-2xl max-w-4xl mx-auto leading-relaxed mb-8 font-medium font-arboria"
               style={{ color: "#3b2f2f" }}
             >
-              Criada para amantes de chocolates feitos artesanalmente, a CacauFlor nasceu para trazer ainda mais
+              Criada para amantes de chocolates feitos artesanalmente, a Cacau Flor nasceu para trazer ainda mais
               sofisticação e desejo ao produto. Feitos com matéria-prima nobre, os produtos são verdadeiras obras de
               arte em beleza e sabor.
             </p>
@@ -324,7 +324,7 @@ export default function CacauFlorPage() {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-sarlotte">A Arte do Chocolate</h2>
             <p className="text-xl leading-relaxed mb-6 max-w-4xl mx-auto font-arboria" style={{ color: "#f2edda" }}>
-              A Chocolateria CacauFlor nasceu da paixão por criar chocolates que são verdadeiras obras de arte. Cada
+              A Chocolateria Cacau Flor nasceu da paixão por criar chocolates que são verdadeiras obras de arte. Cada
               produto é cuidadosamente elaborado com matéria-prima nobre e técnicas artesanais refinadas.
             </p>
             <p
@@ -735,7 +735,7 @@ export default function CacauFlorPage() {
               <div className="relative z-10">
                 <p className="text-white text-lg font-medium mb-2 font-arboria">"Feito artesanalmente com amor"</p>
                 <p className="text-sm font-arboria" style={{ color: "#f2edda" }}>
-                  CacauFlor Chocolateria - Onde cada produto é uma obra de arte
+                  Cacau Flor Chocolateria - Onde cada produto é uma obra de arte
                 </p>
               </div>
             </div>
