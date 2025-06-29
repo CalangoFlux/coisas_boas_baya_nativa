@@ -265,11 +265,7 @@ export default function CacauFlorPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <Link
-                  href="https://www.instagram.com/cacauflornibs?igsh=MnB6YjhjcTIybzNr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="https://www.instagram.com/cacauflornibs/" target="_blank" rel="noopener noreferrer">
                   <Button
                     variant="outline"
                     size="lg"
@@ -658,11 +654,7 @@ export default function CacauFlorPage() {
               verdadeiros apreciadores.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://www.instagram.com/cacauflornibs?igsh=MnB6YjhjcTIybzNr"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="https://www.instagram.com/cacauflornibs/" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   className="text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-xl hover:opacity-90 font-arboria"
